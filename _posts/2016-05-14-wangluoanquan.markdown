@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "从破译者的角度浅析网络安全"
+title:  "[课程讲稿]从破译者的角度浅析网络安全"
 date:   2016-05-14 17:38:43 +0800
 categories: jekyll update
 ---
