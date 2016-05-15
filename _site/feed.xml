@@ -5,12 +5,197 @@
     <description></description>
     <link>http://zyunh.github.io/</link>
     <atom:link href="http://zyunh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 15 May 2016 13:23:08 +0800</pubDate>
-    <lastBuildDate>Sun, 15 May 2016 13:23:08 +0800</lastBuildDate>
+    <pubDate>Sun, 15 May 2016 13:53:49 +0800</pubDate>
+    <lastBuildDate>Sun, 15 May 2016 13:53:49 +0800</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
-        <title>[课程讲稿]从破译者的角度浅析网络安全</title>
+        <title>中国农大Urp绩点计算</title>
+        <description>&lt;p&gt;作者：张云浩    QQ : 3358023393(新)&lt;/p&gt;
+
+&lt;p&gt;关键词： China Agricultural University，中国农业大学，Urp计算，绩点&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;特性&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输入Urp学号密码即可计算&lt;/li&gt;
+  &lt;li&gt;准确划分每个学期，且打印出相应名字和精确数据&lt;/li&gt;
+  &lt;li&gt;！注意！：此结果根据Urp教务系统计算，计算结果无误差，但是教务处的绩点可能会加上特殊加权平均分之类的其他分数，使得两者计算结果不同。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;&lt;strong&gt;如何使用&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;点击，&lt;a href=&quot;https://github.com/ZYunH/CAU-Urp_Calculating/zipball/master&quot;&gt;下载&lt;/a&gt; 将整个项目下载至电脑。&lt;/li&gt;
+  &lt;li&gt;解压ZIP文件，打开其中/User目录，点击’urp_gpa.exe’文件，输入Urp教务系统账号和密码即可。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;注&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;建议使用 管理员模式 + win7兼容模式 打开(为了最大的兼容性,打包环境为win7-32bit)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;&lt;strong&gt;当前版本&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;版本Ver1.3:&lt;/p&gt;
+
+    &lt;p&gt;1.解决了双学位和不及格成绩的计算。&lt;/p&gt;
+
+    &lt;p&gt;2.优化了程序结构，修复了一个不能正确访问的BUG。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;&lt;strong&gt;开发信息&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;语言：Python 2.7.11&lt;/p&gt;
+
+&lt;p&gt;打包环境： windows7 Home Basic 32-bit&lt;/p&gt;
+</description>
+        <pubDate>Sat, 14 May 2016 23:14:54 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/05/14/cau_urp_calculate/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/14/cau_urp_calculate/</guid>
+        
+        <category>python</category>
+        
+        <category>我的项目</category>
+        
+        
+        <category>cau_tools</category>
+        
+      </item>
+    
+      <item>
+        <title>中国农大网关自动登录</title>
+        <description>&lt;p&gt;作者：张云浩    QQ : 3358023393(新)&lt;/p&gt;
+
+&lt;p&gt;关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;特性&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;适用于学校绝大部分环境（网线和WIFI）&lt;/li&gt;
+  &lt;li&gt;只需双击即可完成‘登录’或‘注销操作’&lt;/li&gt;
+  &lt;li&gt;无与伦比的速度&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;如何使用&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;点击 &lt;a href=&quot;https://github.com/ZYunH/CAU-Gateway_Automaticlogin/archive/master.zip&quot;&gt;下载&lt;/a&gt; ，即可将整个项目下载至电脑。&lt;/li&gt;
+  &lt;li&gt;解压ZIP文件，打开其中/User目录，点击’login.exe’或‘logout.exe’进行第一次设置(即输入一次账号和密码，这个操作会自动生成配置文件gateway.setup)&lt;/li&gt;
+  &lt;li&gt;以后使用只需点击’login.exe’或’logout.exe’即可自动’‘登录’‘或’‘注销’‘网关。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;注&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;建议使用 管理员模式 + win7兼容模式 打开（为了最大的兼容性,打包环境为win7-32bit）。&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;请妥善保管好您的配置文件。&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;您可以任意移动包含’login.exe’‘logout.exe’‘gateway.setup’这三个文件的文件夹，并不影响使用。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;当前版本&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;版本Ver1.4.0:&lt;/p&gt;
+
+    &lt;p&gt;1.现在可以在WIFI环境下进行第一次设置&lt;/p&gt;
+
+    &lt;p&gt;2.优化了不必要的程序，提升了‘登录’与‘注销’的速度&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;开发信息&lt;/h2&gt;
+
+&lt;p&gt;语言：Python 2.7.11&lt;/p&gt;
+
+&lt;p&gt;打包环境： windows7 Home Basic 32-bit&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;gateway_tools.py说明：
+    &lt;ul&gt;
+      &lt;li&gt;在文件最后选择’login’或’logout’来改变使用目的。&lt;/li&gt;
+      &lt;li&gt;需要打包的login.py或logout.py基于gateway_tools.py，仅仅改变最后的方式变量。&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Thu, 12 May 2016 23:14:54 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/</guid>
+        
+        <category>python</category>
+        
+        <category>我的项目</category>
+        
+        
+        <category>cau_tools</category>
+        
+      </item>
+    
+      <item>
+        <title>中国农大网关流量监测</title>
+        <description>&lt;p&gt;作者：张云浩    QQ : 3358023393(新)&lt;/p&gt;
+
+&lt;h2 id=&quot;section&quot;&gt;特性&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;仅记录网关走的下载流量，不同于其他软件的错误计算&lt;/li&gt;
+  &lt;li&gt;只在流量发送变化的时候显示在窗口&lt;/li&gt;
+  &lt;li&gt;自动使用日志记录流量&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;&lt;strong&gt;如何使用&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;点击 &lt;a href=&quot;https://github.com/ZYunH/CAU-Gateway_Monitoring/archive/master.zip&quot;&gt;下载&lt;/a&gt;，即可将整个项目下载至电脑。&lt;/li&gt;
+  &lt;li&gt;解压ZIP文件，打开其中/User目录，点击’gateway_flow.exe’文件，即可自动显示当前流量变化（前提是流量发生变化），并自动在程序所在目录生成日志记录文件，按照日期记录流量变化。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;注&lt;/strong&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;建议使用 管理员模式 + win7兼容模式 打开(为了最大的兼容性,打包环境为win7-32bit)。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-2&quot;&gt;&lt;strong&gt;当前版本&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;版本Ver1.1:&lt;/p&gt;
+
+    &lt;p&gt;1.优化了显示格式，现在可以在一行内容里监测流量变化。&lt;/p&gt;
+
+    &lt;p&gt;2.增加了日志记录功能。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;section-3&quot;&gt;&lt;strong&gt;开发信息&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;语言：Python 2.7.11&lt;/p&gt;
+
+&lt;p&gt;打包环境： windows7 Home Basic 32-bit&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 12 May 2016 23:14:54 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/05/12/cau_gateway_flow/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/cau_gateway_flow/</guid>
+        
+        <category>python</category>
+        
+        <category>我的项目</category>
+        
+        
+        <category>cau_tools</category>
+        
+      </item>
+    
+      <item>
+        <title>从破译者的角度浅析网络安全</title>
         <description>&lt;blockquote&gt;
   &lt;p&gt;前言：&lt;/p&gt;
 &lt;/blockquote&gt;
