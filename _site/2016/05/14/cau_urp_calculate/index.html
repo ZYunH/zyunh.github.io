@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>中国农大Urp绩点计算</title>
-    <meta name="description" content="作者：张云浩    QQ : 3358023393(新)关键词： China Agricultural University，中国农业大学，Urp计算，绩点特性  输入Urp学号密码即可计算  准确划分每个学期，且打印出相应名字和精确数据  ！注意！：此结果根据Urp教务系统计算，计算结果无误差，但是教务处的绩点...">
+    <title>China Agricultural University Urp 平均绩点计算系统</title>
+    <meta name="description" content="前言：1.此系统仅适用于中国农业大学内部的urp查询系统，初始意愿是方便同学们查询自己的平均绩点，免去复杂的一个个累加计算.2.本项目为开源项目，由于博主精力有限，希望更多的同学能够参与其中，为更多的人带来便利.3.本文主要讲解系统所有代码的含义以及思路，方便以后的改进更加合理，科学。4.最新下载地址和使用说明：...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
@@ -115,7 +115,7 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>中国农大Urp绩点计算</h1>
+        <h1>China Agricultural University Urp 平均绩点计算系统</h1>
         <div class="label">
 
             <div class="label-card">
@@ -171,48 +171,316 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <p>作者：张云浩    QQ : 3358023393(新)</p>
+        <h3 id="section">前言：</h3>
 
-<p>关键词： China Agricultural University，中国农业大学，Urp计算，绩点</p>
+<p><strong>1.此系统仅适用于中国农业大学内部的urp查询系统，初始意愿是方便同学们查询自己的平均绩点，免去复杂的一个个累加计算.</strong></p>
 
-<h2 id="section">特性</h2>
+<p><strong>2.本项目为开源项目，由于博主精力有限，希望更多的同学能够参与其中，为更多的人带来便利.</strong></p>
 
-<ul>
-  <li>输入Urp学号密码即可计算</li>
-  <li>准确划分每个学期，且打印出相应名字和精确数据</li>
-  <li>！注意！：此结果根据Urp教务系统计算，计算结果无误差，但是教务处的绩点可能会加上特殊加权平均分之类的其他分数，使得两者计算结果不同。</li>
-</ul>
+<p><strong>3.本文主要讲解系统所有代码的含义以及思路，方便以后的改进更加合理，科学。</strong></p>
 
-<h2 id="section-1"><strong>如何使用</strong></h2>
+<p><strong>4.最新下载地址和使用说明：<a href="http://zhangyunhao.me/CAU-Urp_Calculating/">http://zhangyunhao.me/CAU-Urp_Calculating/</a>：</strong></p>
 
-<ul>
-  <li>点击，<a href="https://github.com/ZYunH/CAU-Urp_Calculating/zipball/master">下载</a> 将整个项目下载至电脑。</li>
-  <li>解压ZIP文件，打开其中/User目录，点击’urp_gpa.exe’文件，输入Urp教务系统账号和密码即可。</li>
-</ul>
+<h4 id="section-1">平台:</h4>
 
-<p><strong>注</strong>：</p>
+<p><strong>1.语言：python 2.7.11</strong></p>
 
-<ul>
-  <li>建议使用 管理员模式 + win7兼容模式 打开(为了最大的兼容性,打包环境为win7-32bit)。</li>
-</ul>
+<p><strong>2.初始编译系统以及ide:Mac Os 10.11 64-bit ,pycharm for mac 5.0.4 pro</strong></p>
 
-<h2 id="section-2"><strong>当前版本</strong></h2>
+<p><strong>3.打包插件:py2exe</strong></p>
 
-<ul>
-  <li>
-    <p>版本Ver1.3:</p>
+<h4 id="section-2">思路:</h4>
 
-    <p>1.解决了双学位和不及格成绩的计算。</p>
+<p><strong>1.获取用户的学号以及密码,并检验输入是否正确（Module1）</strong></p>
 
-    <p>2.优化了程序结构，修复了一个不能正确访问的BUG。</p>
-  </li>
-</ul>
+<p><strong>2.使用用户的学号以及密码登录Urp，并获取其cookie(Module2)</strong></p>
 
-<h2 id="section-3"><strong>开发信息</strong></h2>
+<p><strong>3.使用cookie获取成绩表单，即全部及格成绩（Module3）</strong></p>
 
-<p>语言：Python 2.7.11</p>
+<p><strong>4.创建存储在列表的类 ，并将课程信息存入(Module4)</strong></p>
 
-<p>打包环境： windows7 Home Basic 32-bit</p>
+<p><strong>5.使用cookie获取指导性教学计划的真实成绩，并更新类的列表（Module5）</strong></p>
+
+<p><strong>6.使用cookie获取不及格成绩列表，并更新不及格成绩的绩点（Module6）</strong></p>
+
+<p><strong>7.创建新的列表，将类列表每个学期区分开（Module7）</strong></p>
+
+<p><strong>8.在类列表中删除双学位以及CET4-6等一些不影响GPA的成绩（Moduele8）</strong></p>
+
+<p><strong>9.计算GPA并打印出来（Module9）</strong></p>
+
+<p><strong>10.在windows上单文件打包</strong></p>
+
+<h4 id="ver-13">Ver 1.3版本的源代码(与上面思路一一对应)：</h4>
+
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c"># -*- coding:utf-8 -*-</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">cookielib</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">class</span> <span class="nc">lesson</span><span class="p">:</span>
+	<span class="c"># __course_number1 = '0'</span>
+	<span class="c"># __course_number2 = '0'</span>
+	<span class="c"># __course_name = '0'</span>
+	<span class="c"># __course_englishname = '0'</span>
+	<span class="c"># __credit = '0'</span>
+	<span class="c"># __course_attribute = '0'</span>
+	<span class="c"># __course_grade = '0'</span>
+
+	<span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">c2</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">cn</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">ce</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">cr</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">ca</span><span class="o">=</span><span class="s">'0'</span><span class="p">,</span> <span class="n">cg</span><span class="o">=</span><span class="s">'0'</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_number1</span> <span class="o">=</span> <span class="n">c1</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_number2</span> <span class="o">=</span> <span class="n">c2</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_name</span> <span class="o">=</span> <span class="n">cn</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_englishname</span> <span class="o">=</span> <span class="n">ce</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__credit</span> <span class="o">=</span> <span class="n">cr</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_attribute</span> <span class="o">=</span> <span class="n">ca</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_grade</span> <span class="o">=</span> <span class="n">cg</span>
+
+	<span class="k">def</span> <span class="nf">get_course_number1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__course_number1</span>
+
+	<span class="k">def</span> <span class="nf">get_course_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__course_name</span>
+
+	<span class="k">def</span> <span class="nf">get_credit</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__credit</span>
+
+	<span class="k">def</span> <span class="nf">get_course_grade</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__course_grade</span>
+
+	<span class="k">def</span> <span class="nf">get_mul</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+		<span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__course_grade</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__credit</span><span class="p">)</span>
+
+	<span class="k">def</span> <span class="nf">change_course_grade</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grade</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_grade</span> <span class="o">=</span> <span class="n">grade</span>
+
+	<span class="k">def</span> <span class="nf">change_course_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__course_name</span> <span class="o">=</span> <span class="n">name</span>
+
+	<span class="k">def</span> <span class="nf">change_credit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">credit</span><span class="p">):</span>
+		<span class="bp">self</span><span class="o">.</span><span class="n">__credit</span> <span class="o">=</span> <span class="n">credit</span>
+
+
+<span class="k">def</span> <span class="nf">login_test</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+	<span class="n">url</span> <span class="o">=</span> <span class="s">'http://urpjw.cau.edu.cn/loginAction.do?dlfs=mh&amp;mh_zjh=</span><span class="si">%</span><span class="s">s&amp;mh_mm=</span><span class="si">%</span><span class="s">s'</span>
+
+	<span class="n">URL</span> <span class="o">=</span> <span class="n">url</span> <span class="o">%</span> <span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+	<span class="n">Request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">Response</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span><span class="n">Request</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+	<span class="k">except</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">URLError</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span>
+		<span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">Y-</span><span class="si">%</span><span class="s">m-</span><span class="si">%</span><span class="s">d </span><span class="si">%</span><span class="s">X'</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+		<span class="k">print</span> <span class="n">e</span><span class="o">.</span><span class="n">reason</span>
+		<span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+
+	<span class="n">result</span> <span class="o">=</span> <span class="n">Response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+	<span class="n">find</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'mainFrame'</span><span class="p">)</span>
+
+	<span class="k">return</span> <span class="n">find</span>
+
+
+<span class="k">def</span> <span class="nf">grade_change</span><span class="p">(</span><span class="n">grade_before</span><span class="p">):</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span>
+	<span class="k">except</span> <span class="p">(</span><span class="nb">ValueError</span><span class="p">,</span> <span class="nb">TypeError</span><span class="p">):</span>
+		<span class="k">return</span> <span class="mi">0</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">4.0</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">85</span><span class="p">,</span> <span class="mi">90</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">3.7</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">82</span><span class="p">,</span> <span class="mi">85</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">3.3</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">78</span><span class="p">,</span> <span class="mi">82</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">3.0</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">78</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">2.7</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">72</span><span class="p">,</span> <span class="mi">75</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">2.3</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">68</span><span class="p">,</span> <span class="mi">72</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">2.0</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">68</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">1.7</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">64</span><span class="p">):</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="mf">1.3</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="c"># Change failed grade's GPA</span>
+	<span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">grade_before</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.6</span>
+		<span class="k">return</span> <span class="n">grade</span>
+	<span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">urp_login</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+	<span class="c"># Module1: Get userid and password. Output url_login.</span>
+	<span class="n">url_login</span> <span class="o">=</span> <span class="s">'http://urpjw.cau.edu.cn/'</span> \
+	            <span class="s">'loginAction.do?dlfs=mh&amp;mh_zjh=</span><span class="si">%</span><span class="s">s&amp;mh_mm=</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+	<span class="c"># Module2: Get cookie though url_login.</span>
+	<span class="n">cookie</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">MozillaCookieJar</span><span class="p">(</span><span class="s">'cookie.txt'</span><span class="p">)</span>
+	<span class="n">cookie_handler</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">)</span>
+	<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">cookie_handler</span><span class="p">)</span>
+
+	<span class="n">opener</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">url_login</span><span class="p">)</span>
+
+	<span class="c"># Module3: Use cookie to get gpa_text.</span>
+	<span class="n">info_url_name</span> <span class="o">=</span> <span class="s">'http://urpjw.cau.edu.cn/gradeLnAllAction.do?type=ln&amp;oper=qbinfo&amp;lnxndm=2015-2016</span><span class="si">%</span><span class="s">D1</span><span class="si">%</span><span class="s">A7</span><span class="si">%</span><span class="s">C4</span><span class="si">%</span><span class="s">EA</span><span class="si">%</span><span class="s">C7</span><span class="si">%</span><span class="s">EF(</span><span class="si">%</span><span class="s">C8</span><span class="si">%</span><span class="s">FD</span><span class="si">%</span><span class="s">D1</span><span class="si">%</span><span class="s">A7</span><span class="si">%</span><span class="s">C6</span><span class="si">%</span><span class="s">DA)'</span>
+	<span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">info_url_name</span><span class="p">)</span>
+	<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+	<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+	<span class="n">gpa_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'GBK'</span><span class="p">)</span>
+
+	<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'&lt;td align="center"&gt;(.+?)&lt;/td&gt;'</span>
+
+	<span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">gpa_text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+	<span class="c"># Module4: Create a list to save lesson class , and save the info in it.</span>
+	<span class="n">lesson_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">match</span><span class="p">),</span> <span class="mi">7</span><span class="p">):</span>
+		<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'&lt;p align="center"&gt;(.+?)&amp;nbsp;&lt;/P&gt;'</span>
+		<span class="n">grade</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+		<span class="n">match</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">grade</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="c"># Save the info in it.</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">match</span><span class="p">)</span> <span class="o">/</span> <span class="mi">7</span><span class="p">):</span>
+		<span class="n">lesson_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">lesson</span><span class="p">(</span><span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span><span class="p">],</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">1</span><span class="p">],</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">2</span><span class="p">],</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">3</span><span class="p">],</span>
+			                        <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">4</span><span class="p">],</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">5</span><span class="p">],</span> <span class="n">match</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="mi">7</span> <span class="o">+</span> <span class="mi">6</span><span class="p">])</span>
+		<span class="k">except</span> <span class="nb">IndexError</span><span class="p">:</span>
+			<span class="k">pass</span>
+	<span class="c"># Handle the course_name , make it easier to identify</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">)):</span>
+		<span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">change_course_name</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_name</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+
+	<span class="c"># Module5: read Guiding teaching plan ,and get real grade</span>
+	<span class="n">info_url_name</span> <span class="o">=</span> <span class="s">'http://urpjw.cau.edu.cn/gradeLnAllAction.do?type=ln&amp;oper=lnFajhKcCjInfo&amp;lnxndm=2015-2016</span><span class="si">%</span><span class="s">D1</span><span class="si">%</span><span class="s">A7</span><span class="si">%</span><span class="s">C4</span><span class="si">%</span><span class="s">EA</span><span class="si">%</span><span class="s">C7</span><span class="si">%</span><span class="s">EF(</span><span class="si">%</span><span class="s">C8</span><span class="si">%</span><span class="s">FD</span><span class="si">%</span><span class="s">D1</span><span class="si">%</span><span class="s">A7</span><span class="si">%</span><span class="s">C6</span><span class="si">%</span><span class="s">DA)'</span>
+	<span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">info_url_name</span><span class="p">)</span>
+	<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+	<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+	<span class="n">gpa_realtext</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'GBK'</span><span class="p">)</span>
+
+	<span class="n">pattern</span> <span class="o">=</span> <span class="s">'&lt;td align="center"&gt;&amp;nbsp;(.+?)&lt;/td&gt;'</span>
+
+	<span class="n">gpa_real</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">gpa_realtext</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">gpa_real</span><span class="p">),</span> <span class="mi">3</span><span class="p">):</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">)):</span>
+			<span class="k">if</span> <span class="n">lesson_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_name</span><span class="p">()</span> <span class="o">==</span> <span class="n">gpa_real</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+				<span class="n">lesson_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">change_course_grade</span><span class="p">(</span><span class="n">gpa_real</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span>
+	<span class="c"># Module6: To correct the results of the failed grade.</span>
+	<span class="n">info_url_name</span> <span class="o">=</span> <span class="s">'http://urpjw.cau.edu.cn/gradeLnAllAction.do?type=ln&amp;oper=bjg'</span>
+	<span class="n">request</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">Request</span><span class="p">(</span><span class="n">info_url_name</span><span class="p">)</span>
+	<span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+	<span class="n">response</span> <span class="o">=</span> <span class="n">opener</span><span class="o">.</span><span class="nb">open</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+	<span class="n">gpa_failed_text</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'GBK'</span><span class="p">)</span>
+
+	<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'&lt;td align="center"&gt;(.+?)&lt;/td&gt;'</span>
+
+	<span class="n">gpa_failed</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">gpa_failed_text</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gpa_failed</span><span class="p">)):</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">)):</span>
+			<span class="k">if</span> <span class="n">lesson_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_name</span><span class="p">()</span> <span class="o">==</span> <span class="n">gpa_failed</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+				<span class="n">lesson_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">change_course_grade</span><span class="p">(</span><span class="n">grade_change</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_grade</span><span class="p">()))</span>
+
+	<span class="c"># Module7: Distinguish between the grades of each term.</span>
+	<span class="n">temp_term</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s">r'&lt;a name="(.+?)" /&gt;&lt;/a&gt;'</span><span class="p">,</span> <span class="n">gpa_text</span><span class="p">)</span>
+
+	<span class="n">flag</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="n">term_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">temp_term</span><span class="p">)):</span>
+		<span class="n">flag</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gpa_text</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">temp_term</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">flag</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+			<span class="n">gpa_text_temp</span> <span class="o">=</span> <span class="n">gpa_text</span><span class="p">[</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]:]</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">gpa_text_temp</span> <span class="o">=</span> <span class="n">gpa_text</span><span class="p">[</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span><span class="n">flag</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]]</span>
+
+		<span class="n">pattern</span> <span class="o">=</span> <span class="s">r'&lt;td align="center"&gt;(.+?)&lt;/td&gt;'</span>
+
+		<span class="n">grade_temp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">pattern</span><span class="p">,</span> <span class="n">gpa_text_temp</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">S</span><span class="p">)</span>
+
+		<span class="n">term_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">grade_temp</span><span class="p">)</span> <span class="o">/</span> <span class="mi">7</span><span class="p">)</span>
+	<span class="c"># Module8: Delete double major grade and CET grade</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">)):</span>
+		<span class="k">if</span> <span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_name</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'（双学位）'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">change_credit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_name</span><span class="p">()</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">'CET'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+			<span class="n">lesson_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">change_credit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+	<span class="c"># Module9: Calculate GPA.</span>
+	<span class="n">term_list_temp</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+	<span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">term_list</span><span class="p">)):</span>
+		<span class="n">temp</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">term_list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">+</span> <span class="n">temp</span>
+		<span class="n">term_list_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+
+	<span class="n">term_list</span> <span class="o">=</span> <span class="n">term_list_temp</span>
+	<span class="c">###</span>
+	<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+	<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">term_list</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="n">a</span> <span class="o">=</span> <span class="n">term_list</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="n">b</span> <span class="o">=</span> <span class="n">term_list</span><span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">b</span><span class="p">])):</span>
+			<span class="n">lesson_list</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">change_course_grade</span><span class="p">(</span><span class="n">grade_change</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_course_grade</span><span class="p">()))</span>
+			<span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">lesson_list</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_mul</span><span class="p">()</span>
+			<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="nb">float</span><span class="p">(</span><span class="n">lesson_list</span><span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">j</span><span class="p">]</span><span class="o">.</span><span class="n">get_credit</span><span class="p">())</span>
+		<span class="k">try</span><span class="p">:</span>
+			<span class="k">print</span> <span class="nb">str</span><span class="p">(</span><span class="n">temp_term</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">))</span> <span class="o">+</span> <span class="s">': '</span> <span class="o">+</span> <span class="s">'</span><span class="si">%.2</span><span class="s">f'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s">' (real:</span><span class="si">%.4</span><span class="s">f)'</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">y</span><span class="p">)</span>
+		<span class="k">except</span> <span class="nb">ZeroDivisionError</span><span class="p">:</span>
+			<span class="k">print</span> <span class="s">'查询错误,您的成绩可能不存在!'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+		<span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+		<span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">userinfo_get</span><span class="p">(</span><span class="n">list_temp</span><span class="p">):</span>
+	<span class="k">print</span> <span class="s">'欢迎使用 &lt;中国农业大学URP平均绩点查询系统-ver1.3&gt; Author: ZhangYunHao '</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+	<span class="k">print</span> <span class="s">'报告BUG,请联系:QQ 3358023393(新号)'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+	<span class="n">userid</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'请输入您的学号(回车键结束):'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">))</span>
+	<span class="n">password</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'请输入您的urp密码(回车键结束):'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">))</span>
+	<span class="k">if</span> <span class="n">login_test</span><span class="p">(</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="k">print</span> <span class="s">'您输入的 学号 或 密码 出现错误.请重新输入!'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+		<span class="k">print</span> <span class="s">' '</span>
+		<span class="n">userinfo_get</span><span class="p">(</span><span class="n">list_temp</span><span class="p">)</span>
+		<span class="k">return</span> <span class="mi">0</span>
+	<span class="n">list_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">userid</span>
+	<span class="n">list_temp</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">password</span>
+
+
+<span class="n">userid</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">''</span>
+<span class="n">list_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">userid</span><span class="p">,</span> <span class="n">password</span><span class="p">]</span>
+<span class="n">userinfo_get</span><span class="p">(</span><span class="n">list_temp</span><span class="p">)</span>
+
+<span class="k">print</span> <span class="s">'登录成功!正在查询中......'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="n">urp_login</span><span class="p">(</span><span class="n">list_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">list_temp</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="k">print</span> <span class="s">'查询完毕!感谢您的使用! 作者:ZhangYunHao'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'提示:此结果依据Urp系统成绩,可能和教务处成绩有出入(教务处可能存在特殊加权平均分)!'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'回车键关闭窗口!'</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">'utf-8'</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'gbk'</span><span class="p">))</span>
+
+</code></pre>
+</div>
+
 
         </article>
         <hr>
@@ -225,6 +493,24 @@
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/15/Save_Variable_In_File/">Python中使用txt文件保存列表变量
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
                         
                         <li class="relatedPost">
                             <a href="http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/">中国农大网关自动登录

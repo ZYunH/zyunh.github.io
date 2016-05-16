@@ -32,7 +32,7 @@ icon: heart
 
 ## 友情链接
 
-[浩阳的GitHub](https://github.com/Gaohaoyang/gaohaoyang.github.io) 
+
 
 ## Comments
 

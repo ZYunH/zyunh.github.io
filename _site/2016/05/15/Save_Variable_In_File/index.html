@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>中国农大网关流量监测</title>
-    <meta name="description" content="作者：张云浩    QQ : 3358023393(新)关键词 ：China Agricultural University gateway_flow  中国农业大学特性  仅记录网关走的下载流量，不同于其他软件的错误计算  只在流量发送变化的时候显示在窗口  自动使用日志记录流量">
+    <title>Python中使用txt文件保存列表变量</title>
+    <meta name="description" content="问题：我们常常需要在python使用中保存一些变量在文件中，其中txt文件是比较方便的，这篇文章给初学者提供了一个解决方案">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/10/cau_gateway_flow/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/05/15/Save_Variable_In_File/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -115,11 +115,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>中国农大网关流量监测</h1>
+        <h1>Python中使用txt文件保存列表变量</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-10
+                <i class="fa fa-calendar"></i>2016-05-15
             </div>
 
             <div class="label-card">
@@ -139,7 +139,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#cau_tools" title="Category: cau_tools" rel="category">cau_tools</a>
+        <a href="/category/#python" title="Category: python" rel="category">python</a>
     
   
 
@@ -157,10 +157,7 @@
   
     
         <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>&nbsp;
-    
-        <!--a href="/tag/#%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE" title="Tag: 我的项目" rel="tag">我的项目</a-->
-        <a href="/tag/#我的项目" title="Tag: 我的项目" rel="tag">我的项目</a>
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
     
   
 
@@ -171,48 +168,94 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <p>作者：张云浩    QQ : 3358023393(新)</p>
+        <blockquote>
+  <h3 id="section">解决方案：</h3>
+</blockquote>
 
-<p>关键词 ：China Agricultural University gateway_flow  中国农业大学</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="n">filename</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">'a'</span><span class="p">):</span>
+   <span class="c"># Try to save a list variable in txt file.</span>
+   <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">mode</span><span class="p">)</span>
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)):</span>
+      <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
+   <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-<h2 id="section">特性</h2>
+<span class="k">def</span> <span class="nf">text_read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+   <span class="c"># Try to read a txt file and return a list.Return [] if there was a mistake.</span>
+   <span class="k">try</span><span class="p">:</span>
+      <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span>
+   <span class="k">except</span> <span class="nb">IOError</span><span class="p">:</span>
+      <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
+      <span class="k">return</span> <span class="n">error</span>
+   <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)):</span>
+      <span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+   <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+   <span class="k">return</span> <span class="n">content</span>
+</code></pre>
+</div>
+
+<blockquote>
+  <h3 id="section-1">使用实例：</h3>
+</blockquote>
+
+<ol>
+  <li>text_save()函数</li>
+</ol>
 
 <ul>
-  <li>仅记录网关走的下载流量，不同于其他软件的错误计算</li>
-  <li>只在流量发送变化的时候显示在窗口</li>
-  <li>自动使用日志记录流量</li>
+  <li>输入：content ，即列表变量；filename,即文件名；mode,即读写方式(默认为’a’，即追加模式);</li>
+  <li>输出：保存列表变量到一个名为‘filename’的txt文件，每一个变量占一行。</li>
 </ul>
 
-<h2 id="section-1">如何使用</h2>
+<p>运行</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>list_test = [1,2,3,4,5,0]
+text_save(list_test,'test.txt')
+</code></pre>
+</div>
+
+<p>得到一个名为’test.txt’文件，其中内容为：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>1
+2
+3
+4
+5
+0
+
+</code></pre>
+</div>
+
+<p>2.text_read()函数</p>
 
 <ul>
-  <li>点击 <a href="https://github.com/ZYunH/CAU-Gateway_Monitoring/archive/master.zip">下载</a>，即可将整个项目下载至电脑。</li>
-  <li>解压ZIP文件，打开其中/User目录，点击’gateway_flow.exe’文件，即可自动显示当前流量变化（前提是流量发生变化），并自动在程序所在目录生成日志记录文件，按照日期记录流量变化。</li>
+  <li>输入：filename,即文件的名字</li>
+  <li>输出：返回一个列表变量（每个列表转换为字符型）</li>
 </ul>
 
-<p><strong>注</strong>：</p>
+<p>运行</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>list_test = text_read('test.txt')
+print list_test
+</code></pre>
+</div>
+
+<p>得到结果</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>['1', '2', '3', '4', '5', '0']
+</code></pre>
+</div>
+
+<blockquote>
+  <h3 id="section-2">异常处理：</h3>
+</blockquote>
 
 <ul>
-  <li>建议使用 管理员模式 + win7兼容模式 打开(为了最大的兼容性,打包环境为win7-32bit)。</li>
+  <li>text_save():无</li>
+  <li>text_read():如果文件不存在或者为空，返回一个空的列表变量[]</li>
 </ul>
-
-<h2 id="section-2">当前版本</h2>
-
-<ul>
-  <li>
-    <p>版本Ver1.1:</p>
-
-    <p>1.优化了显示格式，现在可以在一行内容里监测流量变化。</p>
-
-    <p>2.增加了日志记录功能。</p>
-  </li>
-</ul>
-
-<h2 id="section-3">开发信息</h2>
-
-<p>语言：Python 2.7.11</p>
-
-<p>打包环境： windows7 Home Basic 32-bit</p>
 
 
         </article>
@@ -228,24 +271,6 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/15/Save_Variable_In_File/">Python中使用txt文件保存列表变量
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
                             <a href="http://zyunh.github.io/2016/05/14/cau_urp_calculate/">China Agricultural University Urp 平均绩点计算系统
                             
                             </a>
@@ -254,11 +279,7 @@
                         
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -278,11 +299,7 @@
                         
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -292,6 +309,24 @@
             
                 
                     
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/10/cau_gateway_flow/">中国农大网关流量监测
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
                 
                     
                 
@@ -308,8 +343,6 @@
                         
                     
                 
-                    
-                
             
         
             
@@ -317,11 +350,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -329,8 +358,6 @@
         
             
             
-                
-                    
                 
                     
                 
@@ -353,8 +380,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/10/cau_gateway_flow/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/10/cau_gateway_flow/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/05/15/Save_Variable_In_File/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/05/15/Save_Variable_In_File/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
