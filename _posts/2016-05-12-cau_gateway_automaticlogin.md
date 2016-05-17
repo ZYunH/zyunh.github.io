@@ -2,8 +2,8 @@
 layout: post
 title:  "中国农大网关自动登录"
 date:   2016-05-12 15:14:54
-categories: cau_tools
-tags: python 我的项目
+categories: python 
+tags: python 我的项目 cau_tools
 ---
 
 作者：张云浩    QQ : 3358023393(新)		

@@ -2,8 +2,8 @@
 layout: post
 title:  "China Agricultural University Urp 平均绩点计算系统"
 date:   2016-05-14 15:14:54
-categories: cau_tools
-tags: python 我的项目
+categories: python 
+tags: python 我的项目 cau_tools
 ---
 
 ### 前言：
