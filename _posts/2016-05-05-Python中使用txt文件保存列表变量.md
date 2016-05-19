@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Python中使用txt文件保存列表变量"
-date:   2016-05-15 10:14:54
+date:   2016-05-05 10:14:54
 categories: python
 tags: python 
 excerpt: 问题：我们常常需要在python使用中保存一些变量在文件中，其中txt文件是比较方便的，这篇文章给初学者提供了一个解决方案

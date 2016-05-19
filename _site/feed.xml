@@ -5,8 +5,8 @@
     <description></description>
     <link>http://zyunh.github.io/</link>
     <atom:link href="http://zyunh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 19 May 2016 22:03:10 +0800</pubDate>
-    <lastBuildDate>Thu, 19 May 2016 22:03:10 +0800</lastBuildDate>
+    <pubDate>Fri, 20 May 2016 00:43:36 +0800</pubDate>
+    <lastBuildDate>Fri, 20 May 2016 00:43:36 +0800</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
     
       <item>
@@ -799,109 +799,6 @@ $ gem sources -l
       </item>
     
       <item>
-        <title>Python中使用txt文件保存列表变量</title>
-        <description>&lt;blockquote&gt;
-  &lt;h3 id=&quot;section&quot;&gt;解决方案：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-   &lt;span class=&quot;c&quot;&gt;# Try to save a list variable in txt file.&lt;/span&gt;
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-   &lt;span class=&quot;c&quot;&gt;# Try to read a txt file and return a list.Return [] if there was a mistake.&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;IOError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;section-1&quot;&gt;使用实例：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;text_save()函数&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输入：content ，即列表变量；filename,即文件名；mode,即读写方式(默认为’a’，即追加模式);&lt;/li&gt;
-  &lt;li&gt;输出：保存列表变量到一个名为‘filename’的txt文件，每一个变量占一行。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;运行&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = [1,2,3,4,5,0]
-text_save(list_test,&#39;test.txt&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;得到一个名为’test.txt’文件，其中内容为：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
-2
-3
-4
-5
-0
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;2.text_read()函数&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输入：filename,即文件的名字&lt;/li&gt;
-  &lt;li&gt;输出：返回一个列表变量（每个列表转换为字符型）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;运行&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = text_read(&#39;test.txt&#39;)
-print list_test
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;得到结果&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;0&#39;]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;section-2&quot;&gt;异常处理：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;text_save():无&lt;/li&gt;
-  &lt;li&gt;text_read():如果文件不存在或者为空，返回一个空的列表变量[]&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Sun, 15 May 2016 18:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/15/Save_Variable_In_File/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/15/Save_Variable_In_File/</guid>
-        
-        <category>python</category>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
         <title>China Agricultural University Urp 平均绩点计算系统</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;前言：&lt;/h3&gt;
 
@@ -1215,8 +1112,8 @@ print list_test
 
 </description>
         <pubDate>Sat, 14 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/14/cau_urp_calculate/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/14/cau_urp_calculate/</guid>
+        <link>http://zyunh.github.io/2016/05/14/China-Agricultural-University-Urp-%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/14/China-Agricultural-University-Urp-%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</guid>
         
         <category>python</category>
         
@@ -1287,8 +1184,8 @@ print list_test
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 12 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/</guid>
+        <link>http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</guid>
         
         <category>python</category>
         
@@ -1348,14 +1245,117 @@ print list_test
 
 </description>
         <pubDate>Tue, 10 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/10/cau_gateway_flow/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/10/cau_gateway_flow/</guid>
+        <link>http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</guid>
         
         <category>python</category>
         
         <category>我的项目</category>
         
         <category>cau_tools</category>
+        
+        
+        <category>python</category>
+        
+      </item>
+    
+      <item>
+        <title>Python中使用txt文件保存列表变量</title>
+        <description>&lt;blockquote&gt;
+  &lt;h3 id=&quot;section&quot;&gt;解决方案：&lt;/h3&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;c&quot;&gt;# Try to save a list variable in txt file.&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+   &lt;span class=&quot;c&quot;&gt;# Try to read a txt file and return a list.Return [] if there was a mistake.&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;IOError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;
+   &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;section-1&quot;&gt;使用实例：&lt;/h3&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;text_save()函数&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输入：content ，即列表变量；filename,即文件名；mode,即读写方式(默认为’a’，即追加模式);&lt;/li&gt;
+  &lt;li&gt;输出：保存列表变量到一个名为‘filename’的txt文件，每一个变量占一行。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = [1,2,3,4,5,0]
+text_save(list_test,&#39;test.txt&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;得到一个名为’test.txt’文件，其中内容为：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
+2
+3
+4
+5
+0
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.text_read()函数&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;输入：filename,即文件的名字&lt;/li&gt;
+  &lt;li&gt;输出：返回一个列表变量（每个列表转换为字符型）&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;运行&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = text_read(&#39;test.txt&#39;)
+print list_test
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;得到结果&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;0&#39;]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;h3 id=&quot;section-2&quot;&gt;异常处理：&lt;/h3&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;text_save():无&lt;/li&gt;
+  &lt;li&gt;text_read():如果文件不存在或者为空，返回一个空的列表变量[]&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Thu, 05 May 2016 18:14:54 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/</guid>
+        
+        <category>python</category>
         
         
         <category>python</category>
@@ -1643,8 +1643,8 @@ print list_test
 &lt;/ul&gt;
 </description>
         <pubDate>Sun, 01 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/01/wangluoanquan/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/01/wangluoanquan/</guid>
+        <link>http://zyunh.github.io/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/</guid>
         
         <category>课程</category>
         

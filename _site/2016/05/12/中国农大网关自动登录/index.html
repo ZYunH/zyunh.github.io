@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Python中使用txt文件保存列表变量</title>
-    <meta name="description" content="问题：我们常常需要在python使用中保存一些变量在文件中，其中txt文件是比较方便的，这篇文章给初学者提供了一个解决方案">
+    <title>中国农大网关自动登录</title>
+    <meta name="description" content="作者：张云浩    QQ : 3358023393(新)关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学特性  适用于学校绝大部分环境（网线和WIFI）  只需双击即可完成‘登录’或‘注销操作’  无与伦比的速度">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/15/Save_Variable_In_File/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -115,11 +115,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>Python中使用txt文件保存列表变量</h1>
+        <h1>中国农大网关自动登录</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-15
+                <i class="fa fa-calendar"></i>2016-05-12
             </div>
 
             <div class="label-card">
@@ -158,7 +158,13 @@
   
     
         <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>&nbsp;
+    
+        <!--a href="/tag/#%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE" title="Tag: 我的项目" rel="tag">我的项目</a-->
+        <a href="/tag/#我的项目" title="Tag: 我的项目" rel="tag">我的项目</a>&nbsp;
+    
+        <!--a href="/tag/#cau_tools" title="Tag: cau_tools" rel="tag">cau_tools</a-->
+        <a href="/tag/#cau_tools" title="Tag: cau_tools" rel="tag">cau_tools</a>
     
   
 
@@ -169,95 +175,60 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <blockquote>
-  <h3 id="section">解决方案：</h3>
-</blockquote>
+        <p>作者：张云浩    QQ : 3358023393(新)</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">text_save</span><span class="p">(</span><span class="n">content</span><span class="p">,</span><span class="n">filename</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">'a'</span><span class="p">):</span>
-   <span class="c"># Try to save a list variable in txt file.</span>
-   <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="n">mode</span><span class="p">)</span>
-   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)):</span>
-      <span class="nb">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">+</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="p">)</span>
-   <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<p>关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学</p>
 
-<span class="k">def</span> <span class="nf">text_read</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-   <span class="c"># Try to read a txt file and return a list.Return [] if there was a mistake.</span>
-   <span class="k">try</span><span class="p">:</span>
-      <span class="nb">file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span>
-   <span class="k">except</span> <span class="nb">IOError</span><span class="p">:</span>
-      <span class="n">error</span> <span class="o">=</span> <span class="p">[]</span>
-      <span class="k">return</span> <span class="n">error</span>
-   <span class="n">content</span> <span class="o">=</span> <span class="nb">file</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-
-   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">)):</span>
-      <span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="nb">len</span><span class="p">(</span><span class="n">content</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-   <span class="nb">file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-   <span class="k">return</span> <span class="n">content</span>
-</code></pre>
-</div>
-
-<blockquote>
-  <h3 id="section-1">使用实例：</h3>
-</blockquote>
-
-<ol>
-  <li>text_save()函数</li>
-</ol>
+<h2 id="section">特性</h2>
 
 <ul>
-  <li>输入：content ，即列表变量；filename,即文件名；mode,即读写方式(默认为’a’，即追加模式);</li>
-  <li>输出：保存列表变量到一个名为‘filename’的txt文件，每一个变量占一行。</li>
+  <li>适用于学校绝大部分环境（网线和WIFI）</li>
+  <li>只需双击即可完成‘登录’或‘注销操作’</li>
+  <li>无与伦比的速度</li>
 </ul>
 
-<p>运行</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>list_test = [1,2,3,4,5,0]
-text_save(list_test,'test.txt')
-</code></pre>
-</div>
-
-<p>得到一个名为’test.txt’文件，其中内容为：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>1
-2
-3
-4
-5
-0
-
-</code></pre>
-</div>
-
-<p>2.text_read()函数</p>
+<h2 id="section-1">如何使用</h2>
 
 <ul>
-  <li>输入：filename,即文件的名字</li>
-  <li>输出：返回一个列表变量（每个列表转换为字符型）</li>
+  <li>点击 <a href="https://github.com/ZYunH/CAU-Gateway_Automaticlogin/archive/master.zip">下载</a> ，即可将整个项目下载至电脑。</li>
+  <li>解压ZIP文件，打开其中/User目录，点击’login.exe’或‘logout.exe’进行第一次设置(即输入一次账号和密码，这个操作会自动生成配置文件gateway.setup)</li>
+  <li>以后使用只需点击’login.exe’或’logout.exe’即可自动’‘登录’‘或’‘注销’‘网关。</li>
 </ul>
 
-<p>运行</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>list_test = text_read('test.txt')
-print list_test
-</code></pre>
-</div>
-
-<p>得到结果</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>['1', '2', '3', '4', '5', '0']
-</code></pre>
-</div>
-
-<blockquote>
-  <h3 id="section-2">异常处理：</h3>
-</blockquote>
+<p><strong>注</strong>：</p>
 
 <ul>
-  <li>text_save():无</li>
-  <li>text_read():如果文件不存在或者为空，返回一个空的列表变量[]</li>
+  <li>建议使用 管理员模式 + win7兼容模式 打开（为了最大的兼容性,打包环境为win7-32bit）。</li>
+  <li><strong>请妥善保管好您的配置文件。</strong></li>
+  <li>您可以任意移动包含’login.exe’‘logout.exe’‘gateway.setup’这三个文件的文件夹，并不影响使用。</li>
 </ul>
 
+<h2 id="section-2">当前版本</h2>
+
+<ul>
+  <li>
+    <p>版本Ver1.4.0:</p>
+
+    <p>1.现在可以在WIFI环境下进行第一次设置</p>
+
+    <p>2.优化了不必要的程序，提升了‘登录’与‘注销’的速度</p>
+  </li>
+</ul>
+
+<h2 id="section-3">开发信息</h2>
+
+<p>语言：Python 2.7.11</p>
+
+<p>打包环境： windows7 Home Basic 32-bit</p>
+
+<ul>
+  <li>gateway_tools.py说明：
+    <ul>
+      <li>在文件最后选择’login’或’logout’来改变使用目的。</li>
+      <li>需要打包的login.py或logout.py基于gateway_tools.py，仅仅改变最后的方式变量。</li>
+    </ul>
+  </li>
+</ul>
 
         </article>
         <hr>
@@ -280,11 +251,50 @@ print list_test
                         
                     
                 
-            
+                    
                 
                     
                 
             
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
                 
                     
                 
@@ -295,66 +305,7 @@ print list_test
                 
                     
                 
-            
-                
                     
-                
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/14/cau_urp_calculate/">China Agricultural University Urp 平均绩点计算系统
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-                
-                    
-                
-            
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/12/cau_gateway_automaticlogin/">中国农大网关自动登录
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-                
-                    
-                
-            
                 
                     
                 
@@ -366,7 +317,7 @@ print list_test
                     
                         
                         <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/10/cau_gateway_flow/">中国农大网关流量监测
+                            <a href="http://zyunh.github.io/2016/05/14/China-Agricultural-University-Urp-%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">China Agricultural University Urp 平均绩点计算系统
                             
                             </a>
                         </li>
@@ -374,11 +325,79 @@ print list_test
                         
                     
                 
-            
+                    
                 
                     
                 
             
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/">中国农大网关流量监测
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/">Python中使用txt文件保存列表变量
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
                 
                     
                 
@@ -389,17 +408,25 @@ print list_test
                 
                     
                 
+                    
+                
+                    
+                
             
                 
                     
                         
                         <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/01/wangluoanquan/">从破译者的角度浅析网络安全
+                            <a href="http://zyunh.github.io/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">从破译者的角度浅析网络安全
                             
                             </a>
                         </li>
                         
                         
+                    
+                
+                    
+                
                     
                 
             
@@ -421,8 +448,8 @@ print list_test
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/15/Save_Variable_In_File/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/15/Save_Variable_In_File/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
