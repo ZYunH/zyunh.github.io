@@ -5,9 +5,9 @@
     <description></description>
     <link>http://zyunh.github.io/</link>
     <atom:link href="http://zyunh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 20 May 2016 12:29:00 +0800</pubDate>
-    <lastBuildDate>Fri, 20 May 2016 12:29:00 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.3</generator>
+    <pubDate>Sat, 21 May 2016 22:12:40 +0800</pubDate>
+    <lastBuildDate>Sat, 21 May 2016 22:12:40 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
     
       <item>
         <title>蜂鸟网论坛原始图片爬取</title>
@@ -161,7 +161,7 @@ Version:1.1
         <category>爬虫</category>
         
         
-        <category>python</category>
+        <category>爬虫</category>
         
       </item>
     
@@ -188,7 +188,9 @@ $ gem sources -l
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;第一句是增加一个淘宝镜像源，第二句是将指针-1，使得只有一个源存在&lt;/p&gt;
+&lt;p&gt;第一句增加一个淘宝镜像源并去除初始源，使得只有一个源存在。&lt;/p&gt;
+
+&lt;p&gt;第二句是显示当前的所有源，如果只剩下一个 https://ruby.taobao.org/，就表示操作成功。&lt;/p&gt;
 
 &lt;p&gt;由于Mac自带ruby，我只需要安装我需要的jekyll即可：&lt;/p&gt;
 
@@ -799,7 +801,7 @@ $ gem sources -l
       </item>
     
       <item>
-        <title>China Agricultural University Urp 平均绩点计算系统</title>
+        <title>中国农业大学Urp平均绩点计算系统</title>
         <description>&lt;h3 id=&quot;section&quot;&gt;前言：&lt;/h3&gt;
 
 &lt;p&gt;&lt;strong&gt;1.此系统仅适用于中国农业大学内部的urp查询系统，初始意愿是方便同学们查询自己的平均绩点，免去复杂的一个个累加计算.&lt;/strong&gt;&lt;/p&gt;
@@ -1112,8 +1114,8 @@ $ gem sources -l
 
 </description>
         <pubDate>Sat, 14 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/14/China-Agricultural-University-Urp-%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/14/China-Agricultural-University-Urp-%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</guid>
+        <link>http://zyunh.github.io/2016/05/14/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6Urp%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/14/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6Urp%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/</guid>
         
         <category>python</category>
         
@@ -1127,7 +1129,7 @@ $ gem sources -l
       </item>
     
       <item>
-        <title>中国农大网关自动登录</title>
+        <title>中国农业大学网关自动登录</title>
         <description>&lt;p&gt;作者：张云浩    QQ : 3358023393(新)&lt;/p&gt;
 
 &lt;p&gt;关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学&lt;/p&gt;
@@ -1186,8 +1188,8 @@ $ gem sources -l
 &lt;/ul&gt;
 </description>
         <pubDate>Thu, 12 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</guid>
+        <link>http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/</guid>
         
         <category>python</category>
         
@@ -1201,7 +1203,7 @@ $ gem sources -l
       </item>
     
       <item>
-        <title>中国农大网关流量监测</title>
+        <title>中国农业大学网关流量监测</title>
         <description>&lt;p&gt;作者：张云浩    QQ : 3358023393(新)&lt;/p&gt;
 
 &lt;p&gt;关键词 ：China Agricultural University gateway_flow  中国农业大学&lt;/p&gt;
@@ -1249,8 +1251,8 @@ $ gem sources -l
 
 </description>
         <pubDate>Tue, 10 May 2016 23:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E5%A4%A7%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</guid>
+        <link>http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/</guid>
         
         <category>python</category>
         
