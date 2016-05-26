@@ -5,9 +5,63 @@
     <description></description>
     <link>http://zyunh.github.io/</link>
     <atom:link href="http://zyunh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 21 May 2016 22:12:40 +0800</pubDate>
-    <lastBuildDate>Sat, 21 May 2016 22:12:40 +0800</lastBuildDate>
-    <generator>Jekyll v3.1.6</generator>
+    <pubDate>Thu, 26 May 2016 17:17:35 +0800</pubDate>
+    <lastBuildDate>Thu, 26 May 2016 17:17:35 +0800</lastBuildDate>
+    <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>解决pip更新以后无法安装PIL问题</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言:&lt;/h2&gt;
+
+&lt;p&gt;​	手残更新了mac的pip，结果这几天需要用到PIL做图像处理。但是pip更新以后出现问题，无法正确安装，一般出现如下提示：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Collecting pil
+  Could not find a version that satisfies the requirement pil (from versions: )
+No matching distribution found for pil
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;解决方法：&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;首先google了一下原因，发现是pip更新以后安全性提升，使得无法正确安装。&lt;/li&gt;
+  &lt;li&gt;使用国外论坛提供的解决方案：&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pip install PIL --allow-external PIL --allow-unverified PIL
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;但是依然无法解决问题，显示没有合适的包。&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;直接下载PIL安装包，链接：&lt;a href=&quot;http://www.pythonware.com/products/pil/&quot;&gt;http://www.pythonware.com/products/pil/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我下载了1.1.7，所有系统兼容的版本（不要下载only for windows）&lt;/p&gt;
+
+&lt;p&gt;在终端中，切到下载目录，执行：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ tar xvfz Imaging-1.1.7.tar.gz
+$ cd Imaging-1.1.7
+$ python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这几行代码意思是解压安装包，切换到加压后目录，执行安装。&lt;/p&gt;
+
+&lt;p&gt;然后就可以开心地使用PIL啦~&lt;/p&gt;
+</description>
+        <pubDate>Thu, 26 May 2016 01:02:00 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/</guid>
+        
+        <category>python</category>
+        
+        
+        <category>python</category>
+        
+      </item>
     
       <item>
         <title>蜂鸟网论坛原始图片爬取</title>
@@ -810,7 +864,7 @@ $ gem sources -l
 
 &lt;p&gt;&lt;strong&gt;3.本文主要讲解系统所有代码的含义以及思路，方便以后的改进更加合理，科学。&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;4.最新下载地址和使用说明：&lt;a href=&quot;http://zhangyunhao.me/CAU-Urp_Calculating/&quot;&gt;http://zhangyunhao.me/CAU-Urp_Calculating/&lt;/a&gt;：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4.最新下载地址和使用说明：&lt;a href=&quot;http://iamzyh.com/CAU-Urp_Calculating/&quot;&gt;http://iamzyh.com/CAU-Urp_Calculating/&lt;/a&gt;：&lt;/strong&gt;&lt;/p&gt;
 
 &lt;h4 id=&quot;section-1&quot;&gt;平台:&lt;/h4&gt;
 
@@ -1134,7 +1188,7 @@ $ gem sources -l
 
 &lt;p&gt;关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学&lt;/p&gt;
 
-&lt;p&gt;GitHub地址（最新进展和使用说明）：&lt;a href=&quot;https://github.com/ZYunH/CAU-Gateway_Automaticlogin&quot;&gt;https://github.com/ZYunH/CAU-Gateway_Automaticlogin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub地址（最新进展和使用说明）：&lt;a href=&quot;http://iamzyh.com/CAU-Gateway_Automaticlogin/&quot;&gt;http://iamzyh.com/CAU-Gateway_Automaticlogin/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;特性&lt;/h2&gt;
 
@@ -1160,19 +1214,7 @@ $ gem sources -l
   &lt;li&gt;您可以任意移动包含’login.exe’‘logout.exe’‘gateway.setup’这三个文件的文件夹，并不影响使用。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;section-2&quot;&gt;当前版本&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;版本Ver1.4.0:&lt;/p&gt;
-
-    &lt;p&gt;1.现在可以在WIFI环境下进行第一次设置&lt;/p&gt;
-
-    &lt;p&gt;2.优化了不必要的程序，提升了‘登录’与‘注销’的速度&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;section-3&quot;&gt;开发信息&lt;/h2&gt;
+&lt;h2 id=&quot;section-2&quot;&gt;开发信息&lt;/h2&gt;
 
 &lt;p&gt;语言：Python 2.7.11&lt;/p&gt;
 
@@ -1208,7 +1250,7 @@ $ gem sources -l
 
 &lt;p&gt;关键词 ：China Agricultural University gateway_flow  中国农业大学&lt;/p&gt;
 
-&lt;p&gt;GitHub地址（最新进展和使用说明）：&lt;a href=&quot;https://github.com/ZYunH/CAU-Gateway_Monitoring&quot;&gt;https://github.com/ZYunH/CAU-Gateway_Monitoring&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;GitHub地址（最新进展和使用说明）：&lt;a href=&quot;http://iamzyh.com/CAU-Gateway_Monitoring&quot;&gt;http://iamzyh.com/CAU-Gateway_Monitoring&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2 id=&quot;section&quot;&gt;特性&lt;/h2&gt;
 

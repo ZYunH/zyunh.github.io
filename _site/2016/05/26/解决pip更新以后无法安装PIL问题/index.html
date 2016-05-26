@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>使用Gem镜像代替官方源</title>
-    <meta name="description" content="前言:​	在Mac使用Gem时，在国内使用gem install 经常会抛出错误，如Unable to download data from https://rubygems.org/ 这是因为国内网络原因（你懂的），造成的资源无法访问。">
+    <title>解决pip更新以后无法安装PIL问题</title>
+    <meta name="description" content="前言:​	手残更新了mac的pip，结果这几天需要用到PIL做图像处理。但是pip更新以后出现问题，无法正确安装，一般出现如下提示：Collecting pil  Could not find a version that satisfies the requirement pil (from versions:...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -115,11 +115,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>使用Gem镜像代替官方源</h1>
+        <h1>解决pip更新以后无法安装PIL问题</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-16
+                <i class="fa fa-calendar"></i>2016-05-26
             </div>
 
             <div class="label-card">
@@ -140,7 +140,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#ruby" title="Category: ruby" rel="category">ruby</a>
+        <a href="/category/#python" title="Category: python" rel="category">python</a>
     
   
 
@@ -157,14 +157,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a-->
-        <a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a>&nbsp;
-    
-        <!--a href="/tag/#ruby" title="Tag: ruby" rel="tag">ruby</a-->
-        <a href="/tag/#ruby" title="Tag: ruby" rel="tag">ruby</a>&nbsp;
-    
-        <!--a href="/tag/#gem" title="Tag: gem" rel="tag">gem</a-->
-        <a href="/tag/#gem" title="Tag: gem" rel="tag">gem</a>
+        <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
     
   
 
@@ -177,34 +171,44 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <h2 id="section">前言:</h2>
 
-<p>​	在Mac使用Gem时，在国内使用gem install 经常会抛出错误，如</p>
+<p>​	手残更新了mac的pip，结果这几天需要用到PIL做图像处理。但是pip更新以后出现问题，无法正确安装，一般出现如下提示：</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Unable to download data from https://rubygems.org/ 
+<div class="highlighter-rouge"><pre class="highlight"><code>Collecting pil
+  Could not find a version that satisfies the requirement pil (from versions: )
+No matching distribution found for pil
 </code></pre>
 </div>
 
-<p>这是因为国内网络原因（你懂的），造成的资源无法访问。</p>
+<h2 id="section-1">解决方法：</h2>
 
-<h2 id="section-1">解决方法</h2>
+<ul>
+  <li>首先google了一下原因，发现是pip更新以后安全性提升，使得无法正确安装。</li>
+  <li>使用国外论坛提供的解决方案：</li>
+</ul>
 
-<p>使用淘宝的RubyGems镜像源，替代原来的源。</p>
-
-<p>MAC：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
-$ gem sources -l
+<div class="highlighter-rouge"><pre class="highlight"><code>pip install PIL --allow-external PIL --allow-unverified PIL
 </code></pre>
 </div>
 
-<p>第一句增加一个淘宝镜像源并去除初始源，使得只有一个源存在。</p>
+<p>但是依然无法解决问题，显示没有合适的包。</p>
 
-<p>第二句是显示当前的所有源，如果只剩下一个 https://ruby.taobao.org/，就表示操作成功。</p>
+<ul>
+  <li>直接下载PIL安装包，链接：<a href="http://www.pythonware.com/products/pil/">http://www.pythonware.com/products/pil/</a></li>
+</ul>
 
-<p>由于Mac自带ruby，我只需要安装我需要的jekyll即可：</p>
+<p>我下载了1.1.7，所有系统兼容的版本（不要下载only for windows）</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>$gem install jekyll
+<p>在终端中，切到下载目录，执行：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>$ tar xvfz Imaging-1.1.7.tar.gz
+$ cd Imaging-1.1.7
+$ python setup.py install
 </code></pre>
 </div>
+
+<p>这几行代码意思是解压安装包，切换到加压后目录，执行安装。</p>
+
+<p>然后就可以开心地使用PIL啦~</p>
 
         </article>
         <hr>
@@ -214,8 +218,24 @@ $ gem sources -l
             
                 
                     
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/18/%E8%9C%82%E9%B8%9F%E7%BD%91%E8%AE%BA%E5%9D%9B%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E7%88%AC%E5%8F%96/">蜂鸟网论坛原始图片爬取
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
                 
                     
+                
+            
                 
                     
                 
@@ -226,23 +246,11 @@ $ gem sources -l
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -253,7 +261,27 @@ $ gem sources -l
                 
                     
                 
+            
+        
+            
+            
+                
                     
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/14/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6Urp%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">中国农业大学Urp平均绩点计算系统
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+            
                 
                     
                 
@@ -263,24 +291,21 @@ $ gem sources -l
             
                 
                     
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">中国农业大学网关自动登录
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -290,24 +315,21 @@ $ gem sources -l
             
                 
                     
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/">中国农业大学网关流量监测
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -317,25 +339,14 @@ $ gem sources -l
             
                 
                     
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/">Python中使用txt文件保存列表变量
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
@@ -345,31 +356,23 @@ $ gem sources -l
                 
                     
                 
-                    
+            
                 
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">从破译者的角度浅析网络安全
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
         
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
         
+            </ul>
         
 
 
@@ -385,8 +388,8 @@ $ gem sources -l
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
