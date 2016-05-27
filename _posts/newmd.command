@@ -1,6 +1,12 @@
+#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 import time
+import os
+import sys
 
+path = os.path.dirname(sys.argv[0])
+
+os.chdir(path)
 
 def text_save(content, filename, mode='a'):
     """ Try to save a list variable in txt file."""

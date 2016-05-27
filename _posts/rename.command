@@ -1,5 +1,11 @@
+#!/usr/bin/env python
 # -*-coding:utf-8 -*-
 import os
+import sys
+
+path = os.path.dirname(sys.argv[0])
+
+os.chdir(path)
 
 def text_read(filename):
     """ Try to read a txt file and return a list.Return [] if there was a mistake."""
