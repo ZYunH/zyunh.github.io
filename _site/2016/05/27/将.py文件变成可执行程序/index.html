@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>中国农业大学网关自动登录</title>
-    <meta name="description" content="作者：张云浩    QQ : 3358023393(新)关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学GitHub地址（最新进展和使用说明）：http://iamzyh.com/CAU-Gateway_Automaticlogin/...">
+    <title>将.py文件变成mac可执行程序</title>
+    <meta name="description" content="前言:​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -115,11 +115,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>中国农业大学网关自动登录</h1>
+        <h1>将.py文件变成mac可执行程序</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-12
+                <i class="fa fa-calendar"></i>2016-05-27
             </div>
 
             <div class="label-card">
@@ -158,13 +158,7 @@
   
     
         <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>&nbsp;
-    
-        <!--a href="/tag/#%E6%88%91%E7%9A%84%E9%A1%B9%E7%9B%AE" title="Tag: 我的项目" rel="tag">我的项目</a-->
-        <a href="/tag/#我的项目" title="Tag: 我的项目" rel="tag">我的项目</a>&nbsp;
-    
-        <!--a href="/tag/#cau_tools" title="Tag: cau_tools" rel="tag">cau_tools</a-->
-        <a href="/tag/#cau_tools" title="Tag: cau_tools" rel="tag">cau_tools</a>
+        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
     
   
 
@@ -175,50 +169,45 @@
         </div>
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
-        <p>作者：张云浩    QQ : 3358023393(新)</p>
+        <h2 id="section">前言:</h2>
 
-<p>关键词 ：China Agricultural University gateway_automaticlogin 中国农业大学</p>
+<p>​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。</p>
 
-<p>GitHub地址（最新进展和使用说明）：<a href="http://iamzyh.com/CAU-Gateway_Automaticlogin/">http://iamzyh.com/CAU-Gateway_Automaticlogin/</a></p>
+<h2 id="section-1">解决方法：</h2>
 
-<h2 id="section">特性</h2>
+<p>1.在 xxx.py 文件前加上。</p>
 
-<ul>
-  <li>适用于学校绝大部分环境（网线和WIFI）</li>
-  <li>只需双击即可完成‘登录’或‘注销操作’</li>
-  <li>无与伦比的速度</li>
-</ul>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+</code></pre>
+</div>
 
-<h2 id="section-1">如何使用</h2>
+<p>告诉系统你的解释器位置，请确保脚本和解释器版本一致，否则会出现兼容性问题。</p>
 
-<ul>
-  <li>点击 <a href="https://github.com/ZYunH/CAU-Gateway_Automaticlogin/archive/master.zip">下载</a> ，即可将整个项目下载至电脑。</li>
-  <li>解压ZIP文件，打开其中/User目录，点击’login.exe’或‘logout.exe’进行第一次设置(即输入一次账号和密码，这个操作会自动生成配置文件gateway.setup)</li>
-  <li>以后使用只需点击’login.exe’或’logout.exe’即可自动’‘登录’‘或’‘注销’‘网关。</li>
-</ul>
+<p>2.在文件中加入以下内容，确保不会出现路径错误。</p>
 
-<p><strong>注</strong>：</p>
+<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<ul>
-  <li>建议使用 管理员模式 + win7兼容模式 打开（为了最大的兼容性,打包环境为win7-32bit）。</li>
-  <li><strong>请妥善保管好您的配置文件。</strong></li>
-  <li>您可以任意移动包含’login.exe’‘logout.exe’‘gateway.setup’这三个文件的文件夹，并不影响使用。</li>
-</ul>
+<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</code></pre>
+</div>
 
-<h2 id="section-2">开发信息</h2>
+<p>3.将 xxx.py 的后缀名改为 xxx.command 。</p>
 
-<p>语言：Python 2.7.11</p>
+<p>在终端中cd到脚本目录,并执行以下命令。</p>
 
-<p>打包环境： windows7 Home Basic 32-bit</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mv xxx.py xxx.command
+</code></pre>
+</div>
 
-<ul>
-  <li>gateway_tools.py说明：
-    <ul>
-      <li>在文件最后选择’login’或’logout’来改变使用目的。</li>
-      <li>需要打包的login.py或logout.py基于gateway_tools.py，仅仅改变最后的方式变量。</li>
-    </ul>
-  </li>
-</ul>
+<p>4.给文件添加可执行权限。</p>
+
+<p>在终端中cd到脚本目录,并执行以下命令。</p>
+
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code>chmod +x xxx.command
+</code></pre>
+</div>
 
         </article>
         <hr>
@@ -233,36 +222,12 @@
                         <ul>
                         
                         <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">将.py文件变成mac可执行程序
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
                             <a href="http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/">解决pip更新以后无法安装PIL问题
                             
                             </a>
                         </li>
                         
                         
-                    
-                
-                    
-                
                     
                 
             
@@ -281,23 +246,11 @@
                         
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -308,23 +261,11 @@
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -332,10 +273,6 @@
         
             
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -355,7 +292,7 @@
                         
                     
                 
-                    
+            
                 
                     
                 
@@ -363,15 +300,27 @@
                 
                     
                 
-                    
+            
+        
+            
+            
                 
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">中国农业大学网关自动登录
+                            
+                            </a>
+                        </li>
+                        
+                        
                     
                 
             
                 
                     
                 
-                    
+            
                 
                     
                 
@@ -391,23 +340,11 @@
                         
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -427,10 +364,6 @@
                         
                     
                 
-                    
-                
-                    
-                
             
         
             
@@ -438,15 +371,7 @@
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -469,8 +394,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
