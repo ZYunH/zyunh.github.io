@@ -7,13 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>将.py文件变成mac可执行程序</title>
-    <meta name="description" content="前言:​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。">
+    <meta name="description" content="前言:​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。Update：自己写了一个自动化脚本，将CIC.command放入和.py文件同一目录，运行后输入.py文件名字即可自动创建一个新的.command(不...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -82,9 +82,9 @@
                     
                     <li>
                         
-                        <a href="/demo/">
+                        <a href="/ Photography/">
                         
-                            <i class="fa fa-play"></i>Demo
+                            <i class="fa fa-play"></i>Photography
                         </a>
                     </li>
                     
@@ -172,6 +172,10 @@
         <h2 id="section">前言:</h2>
 
 <p>​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。</p>
+
+<p>Update：自己写了一个自动化脚本，将CIC.command放入和.py文件同一目录，运行后输入.py文件名字即可自动创建一个新的.command(不改变原来脚本),双击即可自动执行。</p>
+
+<p>链接：<a href="https://github.com/ZYunH/Convert-Into-Command">https://github.com/ZYunH/Convert-Into-Command</a></p>
 
 <h2 id="section-1">解决方法：</h2>
 
@@ -394,8 +398,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
