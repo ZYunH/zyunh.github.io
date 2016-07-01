@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>使用Gem镜像代替官方源</title>
-    <meta name="description" content="前言:​	在Mac使用Gem时，在国内使用gem install 经常会抛出错误，如Unable to download data from https://rubygems.org/ 这是因为国内网络原因（你懂的），造成的资源无法访问。">
+    <title>msvcr100.dll文件丢失解决</title>
+    <meta name="description" content="前言:最近在新的虚拟机上运行以前打包的python程序时发现了缺失msvcr100.dll文件的错误，错误发生在装载win7和win10的PD11 for mac上，在此贴出解决方案。">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/06/30/msvcr100.dll%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E8%A7%A3%E5%86%B3/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -117,11 +117,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>使用Gem镜像代替官方源</h1>
+        <h1>msvcr100.dll文件丢失解决</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-16
+                <i class="fa fa-calendar"></i>2016-06-30
             </div>
 
             <div class="label-card">
@@ -142,7 +142,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#ruby" title="Category: ruby" rel="category">ruby</a>
+        <a href="/category/#windows" title="Category: windows" rel="category">windows</a>
     
   
 
@@ -159,14 +159,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a-->
-        <a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a>&nbsp;
-    
-        <!--a href="/tag/#ruby" title="Tag: ruby" rel="tag">ruby</a-->
-        <a href="/tag/#ruby" title="Tag: ruby" rel="tag">ruby</a>&nbsp;
-    
-        <!--a href="/tag/#gem" title="Tag: gem" rel="tag">gem</a-->
-        <a href="/tag/#gem" title="Tag: gem" rel="tag">gem</a>
+        <!--a href="/tag/#windows" title="Tag: windows" rel="tag">windows</a-->
+        <a href="/tag/#windows" title="Tag: windows" rel="tag">windows</a>
     
   
 
@@ -179,34 +173,22 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <h2 id="section">前言:</h2>
 
-<p>​	在Mac使用Gem时，在国内使用gem install 经常会抛出错误，如</p>
+<p>最近在新的虚拟机上运行以前打包的python程序时发现了缺失msvcr100.dll文件的错误，错误发生在装载win7和win10的PD11 for mac上，在此贴出解决方案。</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>Unable to download data from https://rubygems.org/ 
-</code></pre>
-</div>
+<h2 id="section-1">解决方法：</h2>
 
-<p>这是因为国内网络原因（你懂的），造成的资源无法访问。</p>
+<ul>
+  <li>
+    <p>直接下载msvcr100.dll文件</p>
 
-<h2 id="section-1">解决方法</h2>
+    <p>​http://www.pc6.com/softview/SoftView_53688.html</p>
+  </li>
+  <li>
+    <p>使用DirectX Repair进行自动修复（推荐）</p>
 
-<p>使用淘宝的RubyGems镜像源，替代原来的源。</p>
-
-<p>MAC：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$ gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
-$ gem sources -l
-</code></pre>
-</div>
-
-<p>第一句增加一个淘宝镜像源并去除初始源，使得只有一个源存在。</p>
-
-<p>第二句是显示当前的所有源，如果只剩下一个 https://ruby.taobao.org/，就表示操作成功。</p>
-
-<p>由于Mac自带ruby，我只需要安装我需要的jekyll即可：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>$gem install jekyll
-</code></pre>
-</div>
+    <p>​http://www.pc6.com/softview/SoftView_57945.html</p>
+  </li>
+</ul>
 
         </article>
         <hr>
@@ -217,7 +199,10 @@ $ gem sources -l
                 
                     
                 
-                    
+            
+        
+            
+            
                 
                     
                 
@@ -228,7 +213,11 @@ $ gem sources -l
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -239,7 +228,11 @@ $ gem sources -l
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -250,7 +243,10 @@ $ gem sources -l
                 
                     
                 
-                    
+            
+        
+            
+            
                 
                     
                 
@@ -258,15 +254,7 @@ $ gem sources -l
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -277,7 +265,11 @@ $ gem sources -l
                 
                     
                 
+            
+                
                     
+                
+            
                 
                     
                 
@@ -288,23 +280,11 @@ $ gem sources -l
                 
                     
                 
-                    
-                
-                    
-                
             
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
                 
                     
                 
@@ -315,26 +295,6 @@ $ gem sources -l
                 
                     
                 
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
             
         
             
@@ -342,53 +302,7 @@ $ gem sources -l
                 
                     
                 
-                    
-                
-                    
-                
             
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
                 
                     
                 
@@ -409,8 +323,8 @@ $ gem sources -l
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/06/30/msvcr100.dll%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E8%A7%A3%E5%86%B3/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/06/30/msvcr100.dll%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E8%A7%A3%E5%86%B3/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE

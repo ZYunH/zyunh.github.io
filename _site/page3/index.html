@@ -13,7 +13,7 @@
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/">
+    <link rel="canonical" href="http://zyunh.github.io/page3/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -32,8 +32,8 @@
             <ul>
                 <li>
                     
-                    <a class="active" href="/">
-                        
+                    <a href="/">
+                    
                         <i class="fa fa-home"></i>Home
                     </a>
                 </li>
@@ -126,11 +126,11 @@
             
               <li>
                 <h2>
-                  <a class="post-link" href="/2016/06/30/msvcr100.dll%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E8%A7%A3%E5%86%B3/">msvcr100.dll文件丢失解决</a>
+                  <a class="post-link" href="/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/">从破译者的角度浅析网络安全</a>
                 </h2>
                 <div class="label">
                     <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-06-30
+                        <i class="fa fa-calendar"></i>2016-05-01
                     </div>
                     <div class="label-card">
                         <i class="fa fa-user"></i>张云浩
@@ -149,7 +149,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#windows" title="Category: windows" rel="category">windows</a>
+        <a href="/category/#课程" title="Category: 课程" rel="category">课程</a>
     
   
 
@@ -166,68 +166,7 @@
   <i class="fa fa-tags"></i>
   
     
-        <a href="/tag/#windows" title="Tag: windows" rel="tag">windows</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <h2 id="section">前言:</h2>
-
-<p>最近在新的虚拟机上运行以前打包的python程序时发现了缺失msvcr100.dll文件的错误，错误发生在装载win7和win10的PD11 for mac上，在此贴出解决方案。</p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/06/30/msvcr100.dll%E6%96%87%E4%BB%B6%E4%B8%A2%E5%A4%B1%E8%A7%A3%E5%86%B3/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">将.py文件变成mac可执行程序</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-05-27
-                    </div>
-                    <div class="label-card">
-                        <i class="fa fa-user"></i>张云浩
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#python" title="Category: python" rel="category">python</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
+        <a href="/tag/#课程" title="Tag: 课程" rel="tag">课程</a>&nbsp;
     
         <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
     
@@ -238,231 +177,27 @@
                     </div>
                 </div>
                 <div class="excerpt">
-                    <h2 id="section">前言:</h2>
+                    <blockquote>
+  <p>前言：</p>
+</blockquote>
 
-<p>​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。</p>
+<ul>
+  <li>本实验本意是希望大家对网络安全提起足够的重视，请不要恶意使用本实验内容随意盗窃他人账号，如果发生后果，本人概不承担责任！</li>
+  <li>本文作为 陈昕 老师课程 计算机网络 的实验讲解文稿</li>
+</ul>
 
-<p>Update：自己写了一个自动化脚本，将CIC.command放入和.py文件同一目录，运行后输入.py文件名字即可自动创建一个新的.command(不改变原来脚本),双击即可自动执行。</p>
+<h2 id="section">实验内容一：简单的破解校园网关</h2>
 
-<p>链接：<a href="https://github.com/ZYunH/Convert-Into-Command">https://github.com/ZYunH/Convert-Into-Command</a></p>
+<blockquote>
+  <p><strong>本实验模拟了破译者使用最简单的方法（暴力破解）破解网关的过程。</strong></p>
 
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/">解决pip更新以后无法安装PIL问题</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-05-26
-                    </div>
-                    <div class="label-card">
-                        <i class="fa fa-user"></i>张云浩
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#python" title="Category: python" rel="category">python</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <h2 id="section">前言:</h2>
-
-<p>​	更新了mac的pip，结果这几天需要用到PIL做图像处理。但是pip更新以后出现问题，无法正确安装，一般出现如下提示：</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Collecting pil
-  Could not find a version that satisfies the requirement pil (from versions: )
-No matching distribution found for pil
-</code></pre>
-</div>
+  <p><strong>今天我尝试使用最简单的方式，来演示如何简单破解我校网关账户</strong></p>
+</blockquote>
 
 
                 </div>
                 <div class="read-all">
-                    <a  href="/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/05/18/%E8%9C%82%E9%B8%9F%E7%BD%91%E8%AE%BA%E5%9D%9B%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E7%88%AC%E5%8F%96/">蜂鸟网论坛原始图片爬取</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-05-18
-                    </div>
-                    <div class="label-card">
-                        <i class="fa fa-user"></i>张云浩
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#爬虫" title="Category: 爬虫" rel="category">爬虫</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>&nbsp;
-    
-        <a href="/tag/#我的项目" title="Tag: 我的项目" rel="tag">我的项目</a>&nbsp;
-    
-        <a href="/tag/#爬虫" title="Tag: 爬虫" rel="tag">爬虫</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <h2 id="section">前言:</h2>
-
-<p>​	自己比较喜欢摄影，经常看论坛别人的分享。发现保存图片很麻烦，就自己做了一个工具。很久以前做基于python的简易的图片爬虫，目的是获得蜂鸟论坛的帖子图片。</p>
-
-<p>​	GitHub地址：<a href="https://github.com/ZYunH/FengNiao_Downloader">https://github.com/ZYunH/FengNiao_Downloader</a></p>
-
-<p>​	上面有win7 32bit打包后的程序，可直接使用。说明请查看readme。</p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/05/18/%E8%9C%82%E9%B8%9F%E7%BD%91%E8%AE%BA%E5%9D%9B%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E7%88%AC%E5%8F%96/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
-              <li>
-                <h2>
-                  <a class="post-link" href="/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/">使用Gem镜像代替官方源</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2016-05-16
-                    </div>
-                    <div class="label-card">
-                        <i class="fa fa-user"></i>张云浩
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#ruby" title="Category: ruby" rel="category">ruby</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#jekyll" title="Tag: jekyll" rel="tag">jekyll</a>&nbsp;
-    
-        <a href="/tag/#ruby" title="Tag: ruby" rel="tag">ruby</a>&nbsp;
-    
-        <a href="/tag/#gem" title="Tag: gem" rel="tag">gem</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <h2 id="section">前言:</h2>
-
-<p>​	在Mac使用Gem时，在国内使用gem install 经常会抛出错误，如</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>Unable to download data from https://rubygems.org/ 
-</code></pre>
-</div>
-
-<p>这是因为国内网络原因（你懂的），造成的资源无法访问。</p>
-
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2016/05/16/%E4%BD%BF%E7%94%A8Gem%E9%95%9C%E5%83%8F%E4%BB%A3%E6%9B%BF%E5%AE%98%E6%96%B9%E6%BA%90/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                    <a  href="/2016/05/01/%E4%BB%8E%E7%A0%B4%E8%AF%91%E8%80%85%E7%9A%84%E8%A7%92%E5%BA%A6%E6%B5%85%E6%9E%90%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/"><i class="fa fa-newspaper-o"></i>Read All</a>
                 </div>
                 <hr>
               </li>
@@ -474,13 +209,13 @@ No matching distribution found for pil
         <!-- Pagination links -->
         <div class="pagination">
           
-            <span class="previous disable"><i class="fa fa-angle-double-left"></i></span>
-            <span class="previous disable"><i class="fa fa-angle-left"></i></span>
+            <a href="/index.html" class="previous"><i class="fa fa-angle-double-left"></i></a>
+            <a href="/page2" class="previous"><i class="fa fa-angle-left"></i></a>
           
-          <span class="page_number ">1/3</span>
+          <span class="page_number ">3/3</span>
           
-            <a href="/page2" class="next"><i class="fa fa-angle-right"></i></a>
-            <a href="/page3" class="next"><i class="fa fa-angle-double-right"></i></a>
+            <span class="next disable"><i class="fa fa-angle-right"></i></span>
+            <span class="next disable"><i class="fa fa-angle-double-right"></i></span>
           
         </div>
     </div>
