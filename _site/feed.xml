@@ -5,9 +5,107 @@
     <description></description>
     <link>http://zyunh.github.io/</link>
     <atom:link href="http://zyunh.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Fri, 01 Jul 2016 10:43:29 +0800</pubDate>
-    <lastBuildDate>Fri, 01 Jul 2016 10:43:29 +0800</lastBuildDate>
+    <pubDate>Tue, 05 Jul 2016 01:02:07 +0800</pubDate>
+    <lastBuildDate>Tue, 05 Jul 2016 01:02:07 +0800</lastBuildDate>
     <generator>Jekyll v3.1.3</generator>
+    
+      <item>
+        <title>打开Mac os中NTFS读写功能</title>
+        <description>&lt;h2 id=&quot;section&quot;&gt;前言:&lt;/h2&gt;
+
+&lt;p&gt;​		硬盘格式一直Mac用户比较头疼的问题，对于windows下的NTFS格式，Mac只能做到读取，不能写入。这里记录一个用于打开Mac os中NTFS读写功能。（提示：操作有风险，小白用户谨慎使用）&lt;/p&gt;
+
+&lt;h2 id=&quot;section-1&quot;&gt;解决方法：&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;系统版本：Mac os x EI 10.11 型号：Macbook air&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开Mac os系统终端（可在应用程序中搜索terminal）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;在终端中输入: diskutil list&lt;/p&gt;
+
+    &lt;p&gt;此命令可查看你的磁盘信息， 请记住你的TYPE NAME,例如我的磁盘为zyh_ntfs&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:      GUID_partition_scheme                        *121.3 GB   disk0
+     1:                        EFI EFI                     209.7 MB   disk0s1
+     2:                  Apple_HFS mac os                  88.5 GB    disk0s2
+     3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+     4:       Microsoft Basic Data BOOTCAMP                32.0 GB    disk0s4
+  /dev/disk1 (external, physical):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:                            zyh_ntfs               *15.6 GB    disk1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在终端中输入： sudo nano /etc/fstab&lt;/p&gt;
+
+    &lt;p&gt;紧接着会提示输入密码，没有密码就会跳过这一步骤&lt;/p&gt;
+
+    &lt;p&gt;此命令可打开一个关于硬盘挂载与操作之类的界面，可看到&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  GNU nano 2.0.6              File: /etc/fstab                                  
+
+
+
+
+
+                                  [ Read 1 line ]
+  ^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+  ^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;在其中加入：LABEL=(你的磁盘TYPE NAME) none ntfs rw,auto,nobrowse&lt;/p&gt;
+
+    &lt;p&gt;例如我的命令就是：LABEL=zyh_ntfs none ntfs rw,auto,nobrowse&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;接着按下control + x ，会下下方提示是否保存修改，按下 y 键，回车，即可退出此界面&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重启系统&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;重启以后，会发现找不到U盘图标（其实磁盘工具中可以看到），此时你可以设置一个快捷方式来访问你的磁盘&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;打开终端，输入：sudo ln -s /Volumes/zyh_ntfs ~/Desktop/zyh_ntfs&lt;/p&gt;
+
+    &lt;p&gt;&lt;strong&gt;请将这个命令的zyh_ntfs换成自己的TYPE NAME即可&lt;/strong&gt;&lt;/p&gt;
+
+    &lt;p&gt;此命令会提示输入密码，照常输入即可&lt;/p&gt;
+
+    &lt;p&gt;命令完成后会在桌面创建一个通往这个磁盘的快捷方式&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;现在可以愉快的在mac上使用ntfs格式啦~~~&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考来源：http://bbs.feng.com/read-htm-tid-9932031.html&lt;/p&gt;
+</description>
+        <pubDate>Mon, 04 Jul 2016 08:55:04 +0800</pubDate>
+        <link>http://zyunh.github.io/2016/07/04/%E6%89%93%E5%BC%80Mac-os%E4%B8%ADNTFS%E8%AF%BB%E5%86%99%E5%8A%9F%E8%83%BD/</link>
+        <guid isPermaLink="true">http://zyunh.github.io/2016/07/04/%E6%89%93%E5%BC%80Mac-os%E4%B8%ADNTFS%E8%AF%BB%E5%86%99%E5%8A%9F%E8%83%BD/</guid>
+        
+        <category>mac</category>
+        
+        
+        <category>mac</category>
+        
+      </item>
     
       <item>
         <title>msvcr100.dll文件丢失解决</title>
@@ -1395,109 +1493,6 @@ $ gem sources -l
         <category>我的项目</category>
         
         <category>cau_tools</category>
-        
-        
-        <category>python</category>
-        
-      </item>
-    
-      <item>
-        <title>Python中使用txt文件保存列表变量</title>
-        <description>&lt;blockquote&gt;
-  &lt;h3 id=&quot;section&quot;&gt;解决方案：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_save&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;a&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-   &lt;span class=&quot;c&quot;&gt;# Try to save a list variable in txt file.&lt;/span&gt;
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;write&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;text_read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
-   &lt;span class=&quot;c&quot;&gt;# Try to read a txt file and return a list.Return [] if there was a mistake.&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;try&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;filename&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&#39;r&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;except&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;IOError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-      &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;error&lt;/span&gt;
-   &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;readlines&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-
-   &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
-      &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;][:&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-
-   &lt;span class=&quot;nb&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-   &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;section-1&quot;&gt;使用实例：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;text_save()函数&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输入：content ，即列表变量；filename,即文件名；mode,即读写方式(默认为’a’，即追加模式);&lt;/li&gt;
-  &lt;li&gt;输出：保存列表变量到一个名为‘filename’的txt文件，每一个变量占一行。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;运行&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = [1,2,3,4,5,0]
-text_save(list_test,&#39;test.txt&#39;)
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;得到一个名为’test.txt’文件，其中内容为：&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1
-2
-3
-4
-5
-0
-
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;2.text_read()函数&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;输入：filename,即文件的名字&lt;/li&gt;
-  &lt;li&gt;输出：返回一个列表变量（每个列表转换为字符型）&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;运行&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;list_test = text_read(&#39;test.txt&#39;)
-print list_test
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;得到结果&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;0&#39;]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;blockquote&gt;
-  &lt;h3 id=&quot;section-2&quot;&gt;异常处理：&lt;/h3&gt;
-&lt;/blockquote&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;text_save():无&lt;/li&gt;
-  &lt;li&gt;text_read():如果文件不存在或者为空，返回一个空的列表变量[]&lt;/li&gt;
-&lt;/ul&gt;
-
-</description>
-        <pubDate>Thu, 05 May 2016 18:14:54 +0800</pubDate>
-        <link>http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/</link>
-        <guid isPermaLink="true">http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/</guid>
-        
-        <category>python</category>
         
         
         <category>python</category>

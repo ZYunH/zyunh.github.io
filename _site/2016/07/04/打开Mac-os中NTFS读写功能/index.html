@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>将.py文件变成mac可执行程序</title>
-    <meta name="description" content="前言:​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。Update：自己写了一个自动化脚本，将CIC.command放入和.py文件同一目录，运行后输入.py文件名字即可自动创建一个新的.command(不...">
+    <title>打开Mac os中NTFS读写功能</title>
+    <meta name="description" content="前言:​		硬盘格式一直Mac用户比较头疼的问题，对于windows下的NTFS格式，Mac只能做到读取，不能写入。这里记录一个用于打开Mac os中NTFS读写功能。（提示：操作有风险，小白用户谨慎使用）">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href=" /css/fontawesome/css/font-awesome.min.css ">
     <link rel="stylesheet" href=" /css/main.css ">
-    <link rel="canonical" href="http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/">
+    <link rel="canonical" href="http://zyunh.github.io/2016/07/04/%E6%89%93%E5%BC%80Mac-os%E4%B8%ADNTFS%E8%AF%BB%E5%86%99%E5%8A%9F%E8%83%BD/">
     <link rel="alternate" type="application/rss+xml" title="ZYunH" href="http://zyunh.github.io /feed.xml ">
 
 
@@ -117,11 +117,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>将.py文件变成mac可执行程序</h1>
+        <h1>打开Mac os中NTFS读写功能</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2016-05-27
+                <i class="fa fa-calendar"></i>2016-07-04
             </div>
 
             <div class="label-card">
@@ -142,7 +142,7 @@
   <i class="fa fa-th-list"></i>
   
     
-        <a href="/category/#python" title="Category: python" rel="category">python</a>
+        <a href="/category/#mac" title="Category: mac" rel="category">mac</a>
     
   
 
@@ -159,8 +159,8 @@
   <i class="fa fa-tags"></i>
   
     
-        <!--a href="/tag/#python" title="Tag: python" rel="tag">python</a-->
-        <a href="/tag/#python" title="Tag: python" rel="tag">python</a>
+        <!--a href="/tag/#mac" title="Tag: mac" rel="tag">mac</a-->
+        <a href="/tag/#mac" title="Tag: mac" rel="tag">mac</a>
     
   
 
@@ -173,47 +173,88 @@
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <h2 id="section">前言:</h2>
 
-<p>​	写了几个python的脚本，因为每次都要打python xxx.py执行，感觉很麻烦，记录一个可以将python脚本变成mac命令程序双击执行的方法。</p>
-
-<p>Update：自己写了一个自动化脚本，将CIC.command放入和.py文件同一目录，运行后输入.py文件名字即可自动创建一个新的.command(不改变原来脚本),双击即可自动执行。</p>
-
-<p>链接：<a href="https://github.com/ZYunH/Convert-Into-Command">https://github.com/ZYunH/Convert-Into-Command</a></p>
+<p>​		硬盘格式一直Mac用户比较头疼的问题，对于windows下的NTFS格式，Mac只能做到读取，不能写入。这里记录一个用于打开Mac os中NTFS读写功能。（提示：操作有风险，小白用户谨慎使用）</p>
 
 <h2 id="section-1">解决方法：</h2>
 
-<p>1.在 xxx.py 文件前加上。</p>
+<ul>
+  <li>
+    <p>系统版本：Mac os x EI 10.11 型号：Macbook air</p>
+  </li>
+  <li>
+    <p>打开Mac os系统终端（可在应用程序中搜索terminal）</p>
+  </li>
+  <li>
+    <p>在终端中输入: diskutil list</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="c">#!/usr/bin/env python</span>
+    <p>此命令可查看你的磁盘信息， 请记住你的TYPE NAME,例如我的磁盘为zyh_ntfs</p>
+  </li>
+</ul>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:      GUID_partition_scheme                        *121.3 GB   disk0
+     1:                        EFI EFI                     209.7 MB   disk0s1
+     2:                  Apple_HFS mac os                  88.5 GB    disk0s2
+     3:                 Apple_Boot Recovery HD             650.0 MB   disk0s3
+     4:       Microsoft Basic Data BOOTCAMP                32.0 GB    disk0s4
+  /dev/disk1 (external, physical):
+     #:                       TYPE NAME                    SIZE       IDENTIFIER
+     0:                            zyh_ntfs               *15.6 GB    disk1
 </code></pre>
 </div>
 
-<p>告诉系统你的解释器位置，请确保脚本和解释器版本一致，否则会出现兼容性问题。</p>
+<ul>
+  <li>
+    <p>在终端中输入： sudo nano /etc/fstab</p>
 
-<p>2.在文件中加入以下内容，确保不会出现路径错误。</p>
+    <p>紧接着会提示输入密码，没有密码就会跳过这一步骤</p>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
+    <p>此命令可打开一个关于硬盘挂载与操作之类的界面，可看到</p>
+  </li>
+</ul>
 
-<span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">os</span><span class="o">.</span><span class="n">chdir</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<div class="highlighter-rouge"><pre class="highlight"><code>  GNU nano 2.0.6              File: /etc/fstab                                  
+
+
+
+
+
+                                  [ Read 1 line ]
+  ^G Get Help  ^O WriteOut  ^R Read File ^Y Prev Page ^K Cut Text  ^C Cur Pos
+  ^X Exit      ^J Justify   ^W Where Is  ^V Next Page ^U UnCut Text^T To Spell
 </code></pre>
 </div>
 
-<p>3.将 xxx.py 的后缀名改为 xxx.command 。</p>
+<ul>
+  <li>
+    <p>在其中加入：LABEL=(你的磁盘TYPE NAME) none ntfs rw,auto,nobrowse</p>
 
-<p>在终端中cd到脚本目录,并执行以下命令。</p>
+    <p>例如我的命令就是：LABEL=zyh_ntfs none ntfs rw,auto,nobrowse</p>
+  </li>
+  <li>
+    <p>接着按下control + x ，会下下方提示是否保存修改，按下 y 键，回车，即可退出此界面</p>
+  </li>
+  <li>
+    <p>重启系统</p>
+  </li>
+  <li>
+    <p>重启以后，会发现找不到U盘图标（其实磁盘工具中可以看到），此时你可以设置一个快捷方式来访问你的磁盘</p>
+  </li>
+  <li>
+    <p>打开终端，输入：sudo ln -s /Volumes/zyh_ntfs ~/Desktop/zyh_ntfs</p>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>mv xxx.py xxx.command
-</code></pre>
-</div>
+    <p><strong>请将这个命令的zyh_ntfs换成自己的TYPE NAME即可</strong></p>
 
-<p>4.给文件添加可执行权限。</p>
+    <p>此命令会提示输入密码，照常输入即可</p>
 
-<p>在终端中cd到脚本目录,并执行以下命令。</p>
+    <p>命令完成后会在桌面创建一个通往这个磁盘的快捷方式</p>
+  </li>
+  <li>
+    <p>现在可以愉快的在mac上使用ntfs格式啦~~~</p>
+  </li>
+</ul>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>chmod +x xxx.command
-</code></pre>
-</div>
+<p>参考来源：http://bbs.feng.com/read-htm-tid-9932031.html</p>
 
         </article>
         <hr>
@@ -237,33 +278,12 @@
             
                 
                     
-                        
-                        <h2 id="similar_posts">Similar Posts</h2>
-                        <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/26/%E8%A7%A3%E5%86%B3pip%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E6%97%A0%E6%B3%95%E5%AE%89%E8%A3%85PIL%E9%97%AE%E9%A2%98/">解决pip更新以后无法安装PIL问题
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
             
         
             
             
                 
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/18/%E8%9C%82%E9%B8%9F%E7%BD%91%E8%AE%BA%E5%9D%9B%E5%8E%9F%E5%A7%8B%E5%9B%BE%E7%89%87%E7%88%AC%E5%8F%96/">蜂鸟网论坛原始图片爬取
-                            
-                            </a>
-                        </li>
-                        
-                        
                     
                 
             
@@ -302,14 +322,20 @@
             
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/14/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6Urp%E5%B9%B3%E5%9D%87%E7%BB%A9%E7%82%B9%E8%AE%A1%E7%AE%97%E7%B3%BB%E7%BB%9F/">中国农业大学Urp平均绩点计算系统
-                            
-                            </a>
-                        </li>
-                        
-                        
+                
+            
+                
+                    
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
                     
                 
             
@@ -326,15 +352,6 @@
             
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/12/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E8%87%AA%E5%8A%A8%E7%99%BB%E5%BD%95/">中国农业大学网关自动登录
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
                 
             
                 
@@ -350,44 +367,9 @@
             
                 
                     
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/10/%E4%B8%AD%E5%9B%BD%E5%86%9C%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%BD%91%E5%85%B3%E6%B5%81%E9%87%8F%E7%9B%91%E6%B5%8B/">中国农业大学网关流量监测
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-                
-                    
-                
-            
-                
-                    
                 
             
         
-            
-            
-                
-                    
-                        
-                        <li class="relatedPost">
-                            <a href="http://zyunh.github.io/2016/05/05/Python%E4%B8%AD%E4%BD%BF%E7%94%A8txt%E6%96%87%E4%BB%B6%E4%BF%9D%E5%AD%98%E5%88%97%E8%A1%A8%E5%8F%98%E9%87%8F/">Python中使用txt文件保存列表变量
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-            
-        
-        
-            </ul>
         
 
 
@@ -403,8 +385,8 @@
      */
 
     var disqus_config = function() {
-        this.page.url = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = 'http://zyunh.github.io/2016/05/27/%E5%B0%86.py%E6%96%87%E4%BB%B6%E5%8F%98%E6%88%90mac%E5%8F%AF%E6%89%A7%E8%A1%8C%E7%A8%8B%E5%BA%8F/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = 'http://zyunh.github.io/2016/07/04/%E6%89%93%E5%BC%80Mac-os%E4%B8%ADNTFS%E8%AF%BB%E5%86%99%E5%8A%9F%E8%83%BD/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'http://zyunh.github.io/2016/07/04/%E6%89%93%E5%BC%80Mac-os%E4%B8%ADNTFS%E8%AF%BB%E5%86%99%E5%8A%9F%E8%83%BD/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
 
     (function() { // DON'T EDIT BELOW THIS LINE
