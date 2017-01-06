@@ -4,10 +4,8 @@ title:  "打开Mac os中NTFS读写功能"
 date:   2016-07-04 00:55:04
 categories: mac
 tags: mac
-author: 张云浩
+author: ZYunH
 ---
-
-## 前言:
 
 ​		硬盘格式一直Mac用户比较头疼的问题，对于windows下的NTFS格式，Mac只能做到读取，不能写入。这里记录一个用于打开Mac os中NTFS读写功能。（提示：操作有风险，小白用户谨慎使用）
 

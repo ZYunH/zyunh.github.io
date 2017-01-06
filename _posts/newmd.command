@@ -20,8 +20,8 @@ date = time.strftime('%Y-%m-%d %H:%M:%S')
 
 content = ['---', 'layout: post', 'title:  "   "',
            'date:   %s' % date, 'categories: python', 'tags: python',
-           'author: 张云浩', '---', ' ',
-           '## 前言:', ' '
+           'author: ZYunH', '---', ' ',
+           ' '
            ]
 
 filename = '%s' % time.strftime('%Y-%m-%d') + '-' + 'none' + '.md'

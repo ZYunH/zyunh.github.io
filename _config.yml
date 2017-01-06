@@ -7,7 +7,7 @@
 
 # Site settings
 title: ZYunH
-brief-intro: Developer and photography enthusiasts
+brief-intro: Developer
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://zyunh.github.io" # the base hostname & protocol for your site
 
@@ -27,7 +27,7 @@ description_footer: 本站分享一些有意思的文章
 # two ways to comment, only choose one, and use your own short name
 # 两种评论插件，选一个就好了，使用自己的 short_name
 duoshuo_shortname: #hygblog
-disqus_shortname: 张云浩
+disqus_shortname: ZhangYunHao
 
 # statistic analysis 统计代码
 # 百度统计 id，将统计代码替换为自己的百度统计id，即
