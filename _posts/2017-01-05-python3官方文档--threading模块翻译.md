@@ -10,7 +10,7 @@ author: ZYunH
 翻译自python-3.5.2-docs中的threading模块部分，原创翻译，转载请注明出处！（翻译进行中，即将完成）
 
 
-* content
+* CONTENTS
 {:toc}
 
 
@@ -27,45 +27,45 @@ author: ZYunH
 
 本模块具有如下函数：
 
-### threading.active_count():
+### threading.active_count()
 
 返回当前处于活动状态下的Thread对象数量。返回值的大小等同于enumerate()返回列表的长度。
 
-### threading.current_thread():
+### threading.current_thread()
 
 返回当前的Thread对象，也同时返回对调用者对线程对象的控制。如果调用者的线程控制不时由threading模块产生，一个被限制功能dummy thread（虚拟线程）对象将会返回。
 
-### threading.get_ident():
+### threading.get_ident()
 
 返回当前线程的‘线程标志’。这是一个非0的整数，它的值没有直接的意义；它被看作用于索引一个特定线程数据字典的一个魔法糖。线程标志可以被回收，当一个线程退出和另一个线程创建时。
 
 python3.3的新特性。
 
-### threading.enumerate():
+### threading.enumerate()
 
 返回一个包含所有活动对象的列表。列表包含了由current_thread)_产生的后台的线程、虚拟线程对象，还有一个主线程。它不包括已经结束的进程和没有启动的线程。
 
-### threading.mainthread():
+### threading.mainthread()
 
 返回主线程对象。一般情况下，主线程就是python解释器启动时的线程。
 
 python3.4的新特性。
 
-### threading.settrace(func):
+### threading.settrace(func)
 
 对所有已经从threading模块启动的线程设置一个追踪函数。func 将会传递到sys.settrace()的每一个线程中，且在每个线程被调用之前传递过去。
 
-### threading.setprofile(func):
+### threading.setprofile(func)
 
 对所有已经从threading模块启动的线程设置一个配置函数。func 将会传递到sys.settrace()的每一个线程中，且在每个线程被调用之前传递过去。
 
-### threading.stack_size([size]):
+### threading.stack_size([size])
 
 当创建新线程时返回堆栈大小。可选参数size为后来创建的线程指定长度为0的堆栈大小，而且必须为0（使用平台或者参数的预设）或者一个正整数且至少32768（32kib），如果大小尚未指定，预设值0将会被使用。如果改变的堆栈大小是不受支持的，将会引发一个 RuntimeError 错误。如果指定的堆栈大小非法。一个 ValueErroe将会被引发并且堆栈大小将不会被修改。32KiB时，目前最小的可允许的堆栈大小来保持充足的堆栈空间来给解释器使用。注意，一些平台也许会特别限制堆栈的大小，例如需要一个最小的堆栈大小>32KiB或需要分配几倍系统内存页面的大小-引用平台的文档可以得到更多的信息（4KiB页是常见的；在没有更多的特定信息的情况下，推荐使用4096的倍数作为堆栈大小）。可用于：Windows，POSIX的线程系统。
 
 这个模块也定义了一些的常量：
 
-### threading.TIMEOUT_MAX：
+### threading.TIMEOUT_MAX
 
 阻塞的函数所允许的最大超时时间的值（Lock.acquire(),RLock.acquire(),Condition.wait(),等）如果一个特定的超时时间比这个值大，将会引发一个 OverflowError 错误。
 
@@ -75,7 +75,7 @@ python 3.2的新特性
 
 # 17.1.1 线程本地数据
 
-线程本地数据是每个线程特有的值。为了管理线程本地数据，只需创建一个local（或者其子集）实例然后将属性存储在其中：
+线程本地数据是每个线程特有的值。为了管理线程本地数据，只需创建一个local（或者其子类）实例然后将属性存储在其中：
 
 mydata = threading.local()
 
@@ -85,13 +85,13 @@ mydata.x = 1
 
 ### class threading.local：
 
-一个代表线程本地数据的子集。
+一个代表线程本地数据的子类。
 
 如果想要了解更多的信息和示例，请查看文档关于_threading_local模块的信息。
 
 # 17.1.2 线程对象
 
-Thread类代表了一种运行在单独线程控制中的活动。有两种方法可以确立这种行为：向构造函数传递一个可以调用的对象，或者在子集中重写run()方法。除此之外，没有其他的方法应该被重写（除了构造函数）。一言以蔽之，在子集中只能重写\__init__()和run()两种方法。
+Thread类代表了一种运行在单独线程控制中的活动。有两种方法可以确立这种行为：向构造函数传递一个可以调用的对象，或者在子类中重写run()方法。除此之外，没有其他的方法应该被重写（除了构造函数）。一言以蔽之，在子类中只能重写\__init__()和run()两种方法。
 
 一旦线程对象被创建，只有通过调用线程的start()方法才能使线程对象开始活动。这种做法引入了run()函数作为单独的线程控制。
 
