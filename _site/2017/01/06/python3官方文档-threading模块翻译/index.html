@@ -94,7 +94,7 @@
                     
                     <li>
                         
-                        <a href="/about/">
+                        <a href="/aboutme/">
                         
                             <i class="fa fa-heart"></i>About me
                         </a>
@@ -487,7 +487,7 @@
 
 <p>一个状态变量遵守 context management protocol：使用with声明来获得持续封闭块的关联锁。acquire()和release()方法也调用相应的关联锁方法。</p>
 
-<p>其他方法被调用时必须持有关联锁。wait()方法释放锁，然后阻塞知道另一个线程使用notify()或nitify_all()将其唤醒。一旦被唤醒，wait()将重新获得锁并返回。它也可以指定一个timeout参数。</p>
+<p>其他方法被调用时必须持有关联锁。wait()方法释放锁，然后阻塞直到另一个线程使用notify()或nitify_all()将其唤醒。一旦被唤醒，wait()将重新获得锁并返回。它也可以指定一个timeout参数。</p>
 
 <p>notify()方法唤醒等待状态变量的线程的其中之一，如果有等待线程的话。notify_all()方法唤醒所有等待状态变量的线程。</p>
 
@@ -536,7 +536,7 @@
 
 <h3 id="waittimeoutnone">wait(timeout=None)</h3>
 
-<p>等待知道被唤醒或者timeout发生。当这个方法被调用时，如果调用的线程并没有获得锁，一个RuntimeError错误将会被引发。</p>
+<p>等待直到被唤醒或者timeout发生。当这个方法被调用时，如果调用的线程并没有获得锁，一个RuntimeError错误将会被引发。</p>
 
 <p>这个方法释放了底层锁，然后堵塞，直到notify()或者notify_all()为了在另一线程中的同一状态变量被调用时，将其唤醒，或者直到可选的timeout发生。一旦被唤醒或者timeout，它将重新获得锁并返回。</p>
 
@@ -584,6 +584,21 @@
                     
                 
             
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
         
             
             
@@ -618,6 +633,8 @@
     </div>
     <div class="nex">
 
+        
+        <p><strong>下一篇</strong> <a href="/2017/01/08/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9A%84%E5%87%A0%E4%BD%95%E7%90%86%E8%A7%A3/">线性代数的几何理解</a></p>
         
     </div>
 </div>

@@ -273,7 +273,7 @@ Python 3.2的新特性 ：加入了timeout参数。
 
 一个状态变量遵守 context management protocol：使用with声明来获得持续封闭块的关联锁。acquire()和release()方法也调用相应的关联锁方法。
 
-其他方法被调用时必须持有关联锁。wait()方法释放锁，然后阻塞知道另一个线程使用notify()或nitify_all()将其唤醒。一旦被唤醒，wait()将重新获得锁并返回。它也可以指定一个timeout参数。
+其他方法被调用时必须持有关联锁。wait()方法释放锁，然后阻塞直到另一个线程使用notify()或nitify_all()将其唤醒。一旦被唤醒，wait()将重新获得锁并返回。它也可以指定一个timeout参数。
 
 notify()方法唤醒等待状态变量的线程的其中之一，如果有等待线程的话。notify_all()方法唤醒所有等待状态变量的线程。
 
@@ -322,7 +322,7 @@ notify()和notify_all()的选择，需要考虑是否一种状态的变化能被
 
 ### wait(timeout=None)
 
-等待知道被唤醒或者timeout发生。当这个方法被调用时，如果调用的线程并没有获得锁，一个RuntimeError错误将会被引发。
+等待直到被唤醒或者timeout发生。当这个方法被调用时，如果调用的线程并没有获得锁，一个RuntimeError错误将会被引发。
 
 这个方法释放了底层锁，然后堵塞，直到notify()或者notify_all()为了在另一线程中的同一状态变量被调用时，将其唤醒，或者直到可选的timeout发生。一旦被唤醒或者timeout，它将重新获得锁并返回。
 
