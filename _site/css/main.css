@@ -452,9 +452,14 @@ header {
       transform: scale(0.1);
       transition: 0.2s cubic-bezier(0.5, 0.1, 0.51, 1.38); }
     .page .right-show {
+      z-index: 999;
       visibility: visible;
       opacity: 1;
-      transform: scale(1); } }
+      transform: scale(1); }
+      .page .right-show .content-ul {
+        margin-bottom: 0; }
+        .page .right-show .content-ul > li:last-of-type {
+          margin-bottom: 16px; } }
 /**
  * Syntax highlighting styles
  */

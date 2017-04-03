@@ -30,6 +30,8 @@
     </script>
 
 
+
+
 </head>
 
 
@@ -86,7 +88,7 @@
                         
                         <a href="/collection/">
                         
-                            <i class="fa fa-bookmark"></i>Collections
+                            <i class="fa fa-bookmark"></i>Mini-Spider教程
                         </a>
                     </li>
                     
@@ -215,17 +217,6 @@
         <hr>
 
         
-        
-            
-            
-                
-                    
-                
-            
-                
-                    
-                
-            
         
             
             
@@ -366,13 +357,21 @@
 <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
     <div class="back-to-top">
-    <a href="#top" class="scroll">
+    <a href="#top" data-scroll>
         <i class="fa fa-arrow-up" aria-hidden="true"></i>
     </a>
 </div>
 
     <script src=" /js/main.js " charset="utf-8"></script>
-    <script src=" /js/scroll.min.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
   </body>
 
 </html>
